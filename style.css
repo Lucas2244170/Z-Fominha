@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* =========================================================
    ZÉ FORMINHA — STYLE.CSS
    Estilização completa do site
@@ -71,10 +72,37 @@ button {
 /* =========================================================
    3) CABEÇALHO (HEADER)
    ========================================================= */
+=======
+/* Definições gerais de cores e tipografia do projeto */
+:root {
+    --color-primary: #1a1eff; /* tonalidade usada nos destaques */
+    --color-primary-dark: #4339CA; /* tonalidade para efeitos de interação */
+    --color-text: #1e1b2e; /* cor padrão dos textos */
+    --color-text-light: #6b7280; /* cor dos textos de apoio */
+    --color-border: #E5E7EB; /* tonalidade das divisórias */
+    --color-bg: #FFF; /* fundo padrão da página */
+    --font-main: 'Inter', sans-serif; /* família tipográfica do site */
+}
+
+* {
+    margin: 0; /* Elimina as margens predefinidas */
+    padding: 0; /* Zera o preenchimento inicial */
+    box-sizing: border-box; /* Considera bordas e preenchimentos nas dimensões */
+}
+
+body {
+    font-family: var(--font-main); /* Define a tipografia utilizada no corpo */
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+/* Estilização do cabeçalho principal */
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 
 .header {
     width: 100%;
     background-color: var(--color-bg);
+<<<<<<< HEAD
     border-bottom: 1px solid var(--color-border);
 
     position: sticky;
@@ -93,12 +121,33 @@ button {
     gap: 24px;
 }
 
+=======
+    border-bottom: 1px solid var(--color-border); /* Linha que separa o cabeçalho do conteúdo */
+    position: sticky; /* Conserva o cabeçalho no topo durante a rolagem */
+    top: 0;
+    z-index: 100; /* Mantém o cabeçalho sobre os demais elementos */
+}
+
+.header-container {
+    max-width: 1200px; /* Estabelece o limite de largura do conteúdo */
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex; /* Alinha os componentes em uma mesma linha */
+    align-items: center; /* Posiciona os itens no centro vertical */
+    justify-content: space-between; /* Distribui a logo, os links e os controles */
+    gap: 24px; /* Define a distância entre os componentes */
+}
+
+/* Ajustes visuais da identidade da marca */
+
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 
 /* LOGO */
 
 .logo {
     display: flex;
     align-items: center;
+<<<<<<< HEAD
     gap: 12px;
     text-decoration: none;
 }
@@ -106,6 +155,29 @@ button {
 .logo img {
     width: 45px;
     object-fit: contain;
+=======
+    gap: 8px;
+    text-decoration: none; /* Retira a linha abaixo do texto do link */
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+.logo-tittle {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.Logo-subtitle {
+    font-size: 12px;
+    color: var(--color-text-light);
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 }
 
 .logo-text {
@@ -113,6 +185,7 @@ button {
     flex-direction: column;
 }
 
+<<<<<<< HEAD
 .logo-title {
     font-size: 18px;
     font-weight: 800;
@@ -152,6 +225,34 @@ button {
 
 
 /* BUSCA E BOTÕES */
+=======
+/* Organização dos itens de navegação */
+
+.main-nav {
+    display: flex;
+    align-items: center; /* Mantém os links alinhados verticalmente */
+    gap: 32px; /* Separa as opções do menu */
+}
+
+.nav-link {
+    text-decoration: none; /* Retira a decoração padrão dos links */
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: color 0.2s ease; /* Torna a mudança de tonalidade gradual */
+}
+
+.nav-link:hover {
+    color: var(--color-text); /* Altera a cor quando o ponteiro passa pelo link */
+}
+
+.nav-link.active {
+    color: var(--color-primary); /* Marca visualmente a opção selecionada */
+    font-weight: 600;
+}
+
+/* Elementos de ação localizados no cabeçalho */
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 
 .header-actions {
     display: flex;
@@ -159,14 +260,22 @@ button {
     gap: 16px;
 }
 
+<<<<<<< HEAD
 .search-box {
     position: relative;
+=======
+/* Configurações da área de pesquisa */
+
+.search-box {
+    position: relative; /* Usa a caixa como referência para posicionar a lupa */
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
     display: flex;
     align-items: center;
 }
 
 .search-box input {
     font-family: var(--font-main);
+<<<<<<< HEAD
     width: 200px;
     padding: 10px 40px 10px 16px;
 
@@ -179,6 +288,18 @@ button {
 
 .search-box input:focus {
     border-color: var(--color-primary);
+=======
+    padding: 10px 40px 10px 16px; /* Reserva uma área para o ícone à direita */
+    width: 220px;
+    border: 1px solid var(--color-border); /* Aplica um contorno ao campo */
+    border-radius: 8px; /* Suaviza os cantos da caixa */
+    font-size: 14px;
+    outline: none; /* Desativa o contorno padrão de foco do navegador */
+}
+
+.search-box input:focus {
+    border-color: var(--color-primary); /* Realça o contorno enquanto o campo está ativo */
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 }
 
 .search-box input::placeholder {
@@ -186,6 +307,7 @@ button {
 }
 
 .search-icon {
+<<<<<<< HEAD
     position: absolute;
     right: 14px;
     color: var(--color-text-light);
@@ -877,39 +999,99 @@ button {
         padding: 14px 20px;
     }
 
+=======
+    position: absolute; /* Coloca a lupa sobre a área de pesquisa */
+    right: 14px;
+    fill: var(--color-text-light); /* Aplica a cor de preenchimento do ícone */
+    pointer-events: none; /* Permite interagir com o campo sem bloquear o clique */
+    width: 20px;
+}
+
+.btn-primary {
+    font-family: var(--font-main);
+    background-color: var(--color-primary);
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer; /* Indica visualmente que o botão pode ser pressionado */
+    white-space: nowrap; /* Mantém o conteúdo do botão na mesma linha */
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark); /* Aplica uma cor diferente durante o hover */
+}
+
+.hamburguer {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+}
+
+/* Adaptação do layout para celulares */
+@media (max-width: 768px) {
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
     .search-box {
         display: none;
     }
 
+<<<<<<< HEAD
     .main-nav {
         display: none;
 
         flex-direction: column;
         align-items: flex-end;
+=======
+    /* Define a disposição do menu nas telas menores */
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
+<<<<<<< HEAD
 
         background-color: var(--color-bg);
 
         border-bottom: 1px solid var(--color-border);
 
+=======
+        background-color: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
         padding: 16px 24px;
         gap: 16px;
     }
 
+<<<<<<< HEAD
     .main-nav.ativo {
+=======
+    /* Exibe as opções de navegação após a ativação pelo JavaScript */
+    .main-nav.active {
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
         display: flex;
     }
 
     .btn-primary {
+<<<<<<< HEAD
         display: none;
+=======
+        display: flex;
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
     }
 
     .hamburguer {
         display: flex;
+<<<<<<< HEAD
         align-items: center;
         justify-content: center;
     }
@@ -1059,4 +1241,40 @@ input:focus-visible {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
     }
+=======
+    }
+}
+body.escuro {
+    --color-text: #f9fafb;
+    --color-text-light: #d1d5db;
+    --color-border: #374151;
+    --color-bg: #111827;
+}
+
+/* Modo escuro */
+body.escuro {
+    --color-text: #f9fafb;
+    --color-text-light: #d1d5db;
+    --color-border: #374151;
+    --color-bg: #111827;
+}
+
+/* Estilo do botão de tema */
+#btn-tema {
+    font-family: var(--font-main);
+    padding: 10px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+/* Mantém as cores do menu e dos botões coerentes */
+body,
+.header,
+.main-nav,
+.search-box input {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+>>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 }

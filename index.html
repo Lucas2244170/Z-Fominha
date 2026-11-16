@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- Deus é fiel. -->
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zé Fominha</title>
+
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-container">
+
+            <!-- Logo -->
+            <a href="./index.html" class="logo">
+                <img src="./assets/logo zé forminha.jpg"
+                     alt="Logo Zé Fominha"
+                     width="60">
+
+                <span class="logo-text">
+                    <span class="logo-tittle">Zé Fominha</span>
+                    <span class="Logo-subtitle">O melhor delivery</span>
+                </span>
+            </a>
+
+            <!-- Menu de navegação -->
+            <nav class="main-nav" id="menu">
+                <a href="./index.html" class="nav-link active">Início</a>
+                <a href="./cardapio.html" class="nav-link">Cardápio</a>
+                <a href="./Sobre.html" class="nav-link">Sobre</a>
+                <a href="./Carrinho.html" class="nav-link">Carrinho</a>
+            </nav>
+
+            <!-- Pesquisa e botões -->
+            <div class="header-actions">
+
+                <div class="search-box">
+                    <input
+                        type="text"
+                        placeholder="Buscar"
+                        aria-label="Buscar"
+                    >
+
+                    <img
+                        class="search-icon"
+                        src="./assets/64673.png"
+                        alt=""
+                        width="20"
+                    >
+                </div>
+
+                <button type="button" class="btn-primary">
+                    Cadastro
+                </button>
+
+                <!-- Botão do menu para telas pequenas -->
+                <button
+                    type="button"
+                    class="hamburguer"
+                    id="btn-menu"
+                    aria-controls="menu"
+                    aria-expanded="false"
+                >
+                    ☰ Menu
+                </button>
+
+                <!-- Botão de modo escuro -->
+                <button type="button" id="btn-tema">
+                    🌙 Modo escuro
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- JavaScript -->
+    <script src="./js/script.js"></script>
+
+</body>
+</html>

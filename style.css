@@ -1,41 +1,18 @@
-<<<<<<< HEAD
 /* =========================================================
-   ZÉ FORMINHA — STYLE.CSS
-   Estilização completa do site
+   ZÉ FOMINHA - CSS COMPLETO
+   Base original preservada + correções complementares
    ========================================================= */
 
-
-/* =========================================================
-   1) VARIÁVEIS GLOBAIS
-   ========================================================= */
-
+/* Variaveis Globais (cores e fontes reutilizadas no CSS) */
 :root {
-
-    --color-primary: #E85D04;
-    --color-primary-dark: #C2410C;
-    --color-primary-light: #FDBA74;
-
-    --color-text: #292524;
-    --color-text-light: #78716C;
-
-    --color-border: #E7E5E4;
-
-    --color-bg: #FFFFFF;
-    --color-bg-soft: #FFF7ED;
-
-    --color-success: #16A34A;
-    --color-footer: #292524;
-
-    --radius: 12px;
-
+    --color-primary: #ff1a1a;
+    --color-primary-dark: #ca3945;
+    --color-text: #000000;
+    --color-text-light: #4e4e4e;
+    --color-border: #E5E7EB;
+    --color-bg: #FFF;
     --font-main: 'Inter', sans-serif;
-
 }
-
-
-/* =========================================================
-   2) RESET BÁSICO
-   ========================================================= */
 
 * {
     margin: 0;
@@ -43,68 +20,18 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
 body {
     font-family: var(--font-main);
-    color: var(--color-text);
-    line-height: 1.5;
-    background-color: var(--color-bg);
-}
-
-ul {
-    list-style: none;
-}
-
-button,
-input {
-    font-family: var(--font-main);
-}
-
-button {
-    cursor: pointer;
-}
-
-
-/* =========================================================
-   3) CABEÇALHO (HEADER)
-   ========================================================= */
-=======
-/* Definições gerais de cores e tipografia do projeto */
-:root {
-    --color-primary: #1a1eff; /* tonalidade usada nos destaques */
-    --color-primary-dark: #4339CA; /* tonalidade para efeitos de interação */
-    --color-text: #1e1b2e; /* cor padrão dos textos */
-    --color-text-light: #6b7280; /* cor dos textos de apoio */
-    --color-border: #E5E7EB; /* tonalidade das divisórias */
-    --color-bg: #FFF; /* fundo padrão da página */
-    --font-main: 'Inter', sans-serif; /* família tipográfica do site */
-}
-
-* {
-    margin: 0; /* Elimina as margens predefinidas */
-    padding: 0; /* Zera o preenchimento inicial */
-    box-sizing: border-box; /* Considera bordas e preenchimentos nas dimensões */
-}
-
-body {
-    font-family: var(--font-main); /* Define a tipografia utilizada no corpo */
     background-color: var(--color-bg);
     color: var(--color-text);
 }
 
-/* Estilização do cabeçalho principal */
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
+/* HEADER */
 
 .header {
     width: 100%;
     background-color: var(--color-bg);
-<<<<<<< HEAD
     border-bottom: 1px solid var(--color-border);
-
     position: sticky;
     top: 0;
     z-index: 100;
@@ -114,50 +41,19 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 16px 24px;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
 }
 
-=======
-    border-bottom: 1px solid var(--color-border); /* Linha que separa o cabeçalho do conteúdo */
-    position: sticky; /* Conserva o cabeçalho no topo durante a rolagem */
-    top: 0;
-    z-index: 100; /* Mantém o cabeçalho sobre os demais elementos */
-}
-
-.header-container {
-    max-width: 1200px; /* Estabelece o limite de largura do conteúdo */
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex; /* Alinha os componentes em uma mesma linha */
-    align-items: center; /* Posiciona os itens no centro vertical */
-    justify-content: space-between; /* Distribui a logo, os links e os controles */
-    gap: 24px; /* Define a distância entre os componentes */
-}
-
-/* Ajustes visuais da identidade da marca */
-
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
-
 /* LOGO */
 
 .logo {
     display: flex;
     align-items: center;
-<<<<<<< HEAD
-    gap: 12px;
-    text-decoration: none;
-}
-
-.logo img {
-    width: 45px;
-    object-fit: contain;
-=======
     gap: 8px;
-    text-decoration: none; /* Retira a linha abaixo do texto do link */
+    text-decoration: none;
     flex-shrink: 0;
 }
 
@@ -177,7 +73,6 @@ body {
 .Logo-subtitle {
     font-size: 12px;
     color: var(--color-text-light);
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 }
 
 .logo-text {
@@ -185,20 +80,7 @@ body {
     flex-direction: column;
 }
 
-<<<<<<< HEAD
-.logo-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--color-text);
-}
-
-.logo-subtitle {
-    font-size: 12px;
-    color: var(--color-text-light);
-}
-
-
-/* MENU DE NAVEGAÇÃO */
+/* NAVEGAÇÃO */
 
 .main-nav {
     display: flex;
@@ -215,44 +97,15 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--color-primary);
+    color: var(--color-text);
 }
 
 .nav-link.active {
     color: var(--color-primary);
-    font-weight: 700;
-}
-
-
-/* BUSCA E BOTÕES */
-=======
-/* Organização dos itens de navegação */
-
-.main-nav {
-    display: flex;
-    align-items: center; /* Mantém os links alinhados verticalmente */
-    gap: 32px; /* Separa as opções do menu */
-}
-
-.nav-link {
-    text-decoration: none; /* Retira a decoração padrão dos links */
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-text-light);
-    transition: color 0.2s ease; /* Torna a mudança de tonalidade gradual */
-}
-
-.nav-link:hover {
-    color: var(--color-text); /* Altera a cor quando o ponteiro passa pelo link */
-}
-
-.nav-link.active {
-    color: var(--color-primary); /* Marca visualmente a opção selecionada */
     font-weight: 600;
 }
 
-/* Elementos de ação localizados no cabeçalho */
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
+/* AÇÕES HEADER (Busca + botão) */
 
 .header-actions {
     display: flex;
@@ -260,46 +113,26 @@ body {
     gap: 16px;
 }
 
-<<<<<<< HEAD
-.search-box {
-    position: relative;
-=======
-/* Configurações da área de pesquisa */
+/* BUSCA */
 
 .search-box {
-    position: relative; /* Usa a caixa como referência para posicionar a lupa */
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
+    position: relative;
     display: flex;
     align-items: center;
 }
 
 .search-box input {
     font-family: var(--font-main);
-<<<<<<< HEAD
-    width: 200px;
     padding: 10px 40px 10px 16px;
-
+    width: 220px;
     border: 1px solid var(--color-border);
     border-radius: 8px;
-
     font-size: 14px;
     outline: none;
 }
 
 .search-box input:focus {
     border-color: var(--color-primary);
-=======
-    padding: 10px 40px 10px 16px; /* Reserva uma área para o ícone à direita */
-    width: 220px;
-    border: 1px solid var(--color-border); /* Aplica um contorno ao campo */
-    border-radius: 8px; /* Suaviza os cantos da caixa */
-    font-size: 14px;
-    outline: none; /* Desativa o contorno padrão de foco do navegador */
-}
-
-.search-box input:focus {
-    border-color: var(--color-primary); /* Realça o contorno enquanto o campo está ativo */
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
 }
 
 .search-box input::placeholder {
@@ -307,33 +140,24 @@ body {
 }
 
 .search-icon {
-<<<<<<< HEAD
     position: absolute;
     right: 14px;
-    color: var(--color-text-light);
     pointer-events: none;
+    width: 20px;
+    height: auto;
 }
 
-
-/* BOTÃO PRINCIPAL */
-
 .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
+    font-family: var(--font-main);
     background-color: var(--color-primary);
-    color: #FFFFFF;
-
+    color: #FFF;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
-
     font-size: 14px;
     font-weight: 600;
-    text-decoration: none;
+    cursor: pointer;
     white-space: nowrap;
-
     transition: background-color 0.2s ease;
 }
 
@@ -341,23 +165,180 @@ body {
     background-color: var(--color-primary-dark);
 }
 
-
-/* MENU HAMBÚRGUER */
-
 .hamburguer {
     display: none;
-
     font-size: 24px;
     background: none;
     border: none;
-
+    cursor: pointer;
     color: var(--color-text);
 }
 
+/* TÍTULO PRINCIPAL */
+
+h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 20px 0;
+    color: var(--color-text);
+    text-align: center;
+}
+
+/* IMAGEM DO CARDÁPIO */
+
+.imagem-cardapio {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Telas pequenas (celulares) */
+
+@media (max-width: 768px) {
+    .header-container {
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .logo img {
+        width: 50px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        padding: 16px 24px;
+        gap: 16px;
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .btn-primary {
+        display: flex;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .hamburguer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Modo escuro */
+
+body.escuro {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+body.escuro .header {
+    background-color: #1e1e1e;
+    border-bottom-color: #444;
+}
+
+body.escuro h1,
+body.escuro .logo-tittle {
+    color: #f5f5f5;
+}
+
+body.escuro .Logo-subtitle {
+    color: #cccccc;
+}
+
+body.escuro .nav-link {
+    color: #dddddd;
+}
+
+body.escuro .nav-link.active {
+    color: #ff1a1a;
+}
+
+body.escuro .search-box input {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border-color: #555;
+}
+
+body.escuro .main-nav {
+    background-color: #1e1e1e;
+    border-bottom-color: #444;
+}
 
 /* =========================================================
-   4) CONTAINER E TÍTULOS
+   ZÉ FOMINHA - ESTILOS GERAIS
    ========================================================= */
+
+/* Variáveis globais */
+
+:root {
+    --color-primary: #FFC107;
+    --color-primary-dark: #E0A800;
+    --color-primary-light: #FFF3CD;
+
+    --color-secondary: #E63924;
+    --color-secondary-dark: #C92D1B;
+
+    --color-success: #198754;
+
+    --color-text: #202020;
+    --color-text-light: #777777;
+
+    --color-bg: #FFFFFF;
+    --color-bg-soft: #FFF9EC;
+
+    --color-border: #EEEEEE;
+    --color-footer: #171717;
+
+    --radius: 14px;
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    line-height: 1.5;
+    background-color: var(--color-bg);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
 
 .container {
     max-width: 1200px;
@@ -366,14 +347,158 @@ body {
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 800;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    width: 100%;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+/* LOGO (usada no header e no footer) */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    display: block;
+    flex-shrink: 0;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-size: 16px;
+    font-weight: 600;
     color: var(--color-text);
 }
 
+.logo-subtitle {
+    font-size: 12px;
+    color: var(--color-text-light);
+}
+
+/* NAVEGAÇÃO */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-text);
+}
+
+.nav-link.active {
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+/* AÇÕES (busca + botões) */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-box input {
+    font-family: var(--font-main);
+    padding: 10px 40px 10px 16px;
+    width: 220px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: var(--color-secondary);
+}
+
+.search-box input::placeholder {
+    color: var(--color-text-light);
+}
+
+.search-icon {
+    position: absolute;
+    right: 14px;
+    pointer-events: none;
+    width: 20px;
+    height: auto;
+}
+
+.btn-primary {
+    font-family: var(--font-main);
+    background-color: var(--color-secondary);
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary-dark);
+}
+
+.hamburguer {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+}
 
 /* =========================================================
-   5) ÍCONES
+   ÍCONES - MATERIAL SYMBOLS
    ========================================================= */
 
 .material-symbols-outlined {
@@ -388,10 +513,6 @@ body {
         'opsz' 24;
 }
 
-.material-symbols-outlined.search-icon {
-    font-size: 20px;
-}
-
 .material-symbols-outlined.icon-sm {
     font-size: 20px;
 }
@@ -400,19 +521,14 @@ body {
     font-size: 18px;
 }
 
-
 /* =========================================================
-   6) SEÇÃO PRINCIPAL (HERO)
+   HERO
    ========================================================= */
 
 .hero {
-    background: linear-gradient(
-        180deg,
-        var(--color-bg-soft) 0%,
-        #FFFFFF 100%
-    );
-
-    padding: 64px 0;
+    background: linear-gradient(135deg, #FFF4D6 0%, #FFFFFF 100%);
+    padding: 72px 0;
+    overflow: hidden;
 }
 
 .hero-container {
@@ -428,29 +544,33 @@ body {
 
 .hero-image {
     flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-image img {
-    max-width: 100%;
     width: 100%;
-    object-fit: contain;
+    max-width: 520px;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
 .hero-title {
-    font-size: 40px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 16px;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: #171717;
 }
 
 .text-highlight {
     display: block;
-    color: var(--color-primary);
+    color: var(--color-secondary);
 }
 
 .hero-text {
     font-size: 17px;
-    color: #57534E;
+    color: #555555;
     margin-bottom: 32px;
     max-width: 520px;
 }
@@ -462,34 +582,35 @@ body {
     margin-bottom: 40px;
 }
 
-
-/* BOTÕES DO HERO */
+/* BOTÕES DO HERO / CTA */
 
 .btn-hero,
 .btn-hero-outline {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 10px;
 
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 800;
 
-    padding: 12px 24px;
-    border-radius: 8px;
-    border: 2px solid var(--color-primary);
+    padding: 14px 26px;
+    border-radius: 10px;
+    border: 2px solid transparent;
 
-    text-decoration: none;
-    transition: 0.2s ease;
+    transition: all 0.25s ease;
+    cursor: pointer;
 }
 
 .btn-hero {
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     color: #FFFFFF;
 }
 
 .btn-hero:hover {
-    background-color: var(--color-primary-dark);
-    border-color: var(--color-primary-dark);
+    background-color: var(--color-secondary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(230, 57, 36, 0.2);
 }
 
 .btn-hero .material-symbols-outlined {
@@ -502,13 +623,13 @@ body {
 
 .btn-hero-outline {
     background-color: transparent;
-    color: var(--color-primary);
+    border-color: var(--color-primary-dark);
+    color: #222222;
 }
 
 .btn-hero-outline:hover {
-    background-color: #FFF7ED;
+    background-color: var(--color-primary-light);
 }
-
 
 /* VANTAGENS */
 
@@ -527,6 +648,7 @@ body {
 .hero-feature strong {
     display: block;
     font-size: 14px;
+    font-weight: 800;
 }
 
 .hero-feature small {
@@ -535,42 +657,46 @@ body {
 }
 
 .feature-icon {
-    width: 40px;
-    height: 40px;
-
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background-color: var(--color-primary);
+
+    background-color: var(--color-secondary);
     color: #FFFFFF;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
 }
 
 .feature-icon .material-symbols-outlined {
-    font-size: 22px;
+    font-size: 23px;
 }
 
 .feature-icon-green {
     background-color: var(--color-success);
 }
 
-
 /* =========================================================
-   7) CARDÁPIO E CARROSSEL DE PRODUTOS
+   DESTAQUES DO CARDÁPIO
    ========================================================= */
 
 .courses {
-    padding: 56px 0;
+    padding: 64px 0;
+    background-color: #FFFFFF;
 }
 
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.section-header .section-title {
+    color: #171717;
 }
 
 .link-arrow {
@@ -578,16 +704,17 @@ body {
     align-items: center;
     gap: 6px;
 
-    color: var(--color-primary);
+    color: var(--color-secondary);
     font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
+    font-weight: 800;
+
+    transition: color 0.2s ease;
 }
 
 .link-arrow:hover {
+    color: var(--color-secondary-dark);
     text-decoration: underline;
 }
-
 
 /* CARROSSEL */
 
@@ -595,73 +722,60 @@ body {
     position: relative;
 }
 
-/* Mantém compatibilidade com o HTML e JavaScript */
-
-.course-list,
-#product-list {
+.course-list {
     display: flex;
-    gap: 16px;
+    gap: 20px;
 
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 
-    padding: 6px 4px 16px;
-
+    padding: 8px 4px 20px;
     scrollbar-width: none;
 }
 
-.course-list::-webkit-scrollbar,
-#product-list::-webkit-scrollbar {
+.course-list::-webkit-scrollbar {
     display: none;
 }
-
 
 /* CARDS */
 
 .course-card {
     flex: 0 0 270px;
-
     scroll-snap-align: start;
 
-    background-color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-
-    padding: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-radius: 16px;
+    padding: 22px;
 
     display: flex;
     flex-direction: column;
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
 }
 
 .course-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(41, 37, 36, 0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
 }
 
-
-/* ÍCONES DOS PRODUTOS */
-
 .course-icon {
-    width: 48px;
-    height: 48px;
-
-    border-radius: 10px;
+    width: 54px;
+    height: 54px;
+    border-radius: 12px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     color: #FFFFFF;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .course-icon .material-symbols-outlined {
-    font-size: 28px;
+    font-size: 30px;
 }
 
 .icon-blue {
@@ -669,12 +783,12 @@ body {
 }
 
 .icon-orange {
-    background-color: #EA580C;
+    background-color: var(--color-secondary);
 }
 
 .icon-yellow {
-    background-color: #FACC15;
-    color: #292524;
+    background-color: var(--color-primary);
+    color: #202020;
 }
 
 .icon-green {
@@ -682,85 +796,41 @@ body {
 }
 
 .icon-purple {
-    background-color: #9333EA;
+    background-color: #7542A8;
 }
 
-
-/* TEXTOS DOS PRODUTOS */
-
 .course-title {
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 800;
+    color: #202020;
     margin-bottom: 8px;
 }
 
 .course-text {
     font-size: 14px;
-    color: var(--color-text-light);
+    color: #666666;
     margin-bottom: 20px;
     flex-grow: 1;
 }
-
-
-/* INFORMAÇÕES E PREÇOS */
 
 .course-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    font-size: 13px;
-    color: var(--color-text-light);
-
     gap: 8px;
-}
-
-.course-level,
-.course-lessons {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    font-size: 13px;
 }
 
 .course-level {
     color: var(--color-success);
-    font-weight: 600;
+    font-weight: 700;
 }
 
-.course-lessons strong {
-    color: var(--color-primary);
+.course-lessons {
+    color: var(--color-secondary);
     font-size: 16px;
+    font-weight: 900;
 }
-
-
-/* BOTÃO ADICIONAR AO CARRINHO */
-
-.btn-carrinho {
-    width: 100%;
-    margin-top: 18px;
-
-    padding: 11px 12px;
-
-    background-color: var(--color-primary);
-    color: #FFFFFF;
-
-    border: none;
-    border-radius: 8px;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    transition: background-color 0.2s ease;
-}
-
-.btn-carrinho:hover {
-    background-color: var(--color-primary-dark);
-}
-
-.btn-carrinho:active {
-    transform: scale(0.98);
-}
-
 
 /* BOTÕES DO CARROSSEL */
 
@@ -769,30 +839,27 @@ body {
     top: 50%;
     transform: translateY(-50%);
 
-    width: 44px;
-    height: 44px;
-
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    border: 1px solid var(--color-border);
+    border: none;
 
-    background-color: #FFFFFF;
-    color: var(--color-text);
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-primary);
+    color: #202020;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
+    transition: all 0.2s ease;
     z-index: 2;
-
-    transition: 0.2s ease;
 }
 
 .carousel-btn:hover {
+    background-color: var(--color-secondary);
     color: #FFFFFF;
-    background-color: var(--color-primary);
 }
 
 .carousel-prev {
@@ -803,32 +870,31 @@ body {
     right: -20px;
 }
 
-
 /* =========================================================
-   8) SOBRE O ZÉ FORMINHA
+   POR QUE ESCOLHER O ZÉ FOMINHA
    ========================================================= */
 
 .why {
     background-color: var(--color-bg-soft);
-    padding: 56px 0;
+    padding: 64px 0;
 }
 
 .why .section-title {
-    margin-bottom: 32px;
+    margin-bottom: 36px;
+    color: #171717;
 }
 
 .why-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 0;
 }
 
 .why-item {
     display: flex;
     gap: 16px;
-
-    padding: 8px 24px;
-
-    border-left: 1px solid var(--color-border);
+    padding: 12px 20px;
+    border-left: 1px solid #E7DFC9;
 }
 
 .why-item:first-child {
@@ -838,11 +904,11 @@ body {
 
 .material-symbols-outlined.why-icon {
     font-size: 40px;
-    color: var(--color-primary);
+    color: var(--color-secondary);
 
     font-variation-settings:
         'FILL' 0,
-        'wght' 300,
+        'wght' 400,
         'GRAD' 0,
         'opsz' 40;
 }
@@ -853,23 +919,55 @@ body {
 
 .why-item h3 {
     font-size: 15px;
+    font-weight: 800;
     margin-bottom: 8px;
 }
 
 .why-item p {
     font-size: 14px;
-    color: var(--color-text-light);
+    color: #666666;
 }
 
+/* =========================================================
+   CHAMADA FINAL - CTA
+   ========================================================= */
+
+.cta {
+    background: linear-gradient(135deg, #E63924, #B82015);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 64px 24px;
+}
+
+.cta h2 {
+    font-size: 34px;
+    font-weight: 900;
+    margin-bottom: 12px;
+}
+
+.cta p {
+    font-size: 16px;
+    margin-bottom: 28px;
+    color: #FFF1ED;
+}
+
+.cta .btn-hero {
+    background-color: var(--color-primary);
+    color: #202020;
+}
+
+.cta .btn-hero:hover {
+    background-color: #FFD54F;
+}
 
 /* =========================================================
-   9) RODAPÉ (FOOTER)
+   FOOTER
    ========================================================= */
 
 .footer {
     background-color: var(--color-footer);
     color: #FFFFFF;
-    padding-top: 48px;
+    padding-top: 52px;
 }
 
 .footer-container {
@@ -884,31 +982,28 @@ body {
 }
 
 .footer .logo-subtitle {
-    color: #D6D3D1;
+    color: #BBBBBB;
 }
 
 .footer-column h4 {
     font-size: 15px;
-    margin-bottom: 16px;
+    font-weight: 800;
+    margin-bottom: 18px;
 }
 
 .footer-column li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .footer-column a {
-    color: #D6D3D1;
-    text-decoration: none;
+    color: #CCCCCC;
     font-size: 14px;
     transition: color 0.2s ease;
 }
 
 .footer-column a:hover {
-    color: #FFFFFF;
+    color: var(--color-primary);
 }
-
-
-/* REDES SOCIAIS */
 
 .social-links {
     display: flex;
@@ -916,51 +1011,134 @@ body {
 }
 
 .social-links a {
-    width: 40px;
-    height: 40px;
-
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.12);
+
+    background-color: rgba(255, 255, 255, 0.10);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    transition: background-color 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .social-links a:hover {
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
+    transform: translateY(-3px);
 }
 
 .social-links i {
-    font-size: 18px;
+    font-size: 19px;
     color: #FFFFFF;
 }
-
-
-/* DIREITOS AUTORAIS */
 
 .footer-copy {
     text-align: center;
     font-size: 13px;
-    color: #D6D3D1;
-
+    color: #AAAAAA;
     padding: 20px 24px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
+/* =========================================================
+   MODO ESCURO
+   ========================================================= */
+
+body.escuro {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+body.escuro .header,
+body.escuro .main-nav {
+    background-color: #1e1e1e;
+    border-bottom-color: #444;
+}
+
+body.escuro .logo-title,
+body.escuro .hamburguer {
+    color: #f5f5f5;
+}
+
+body.escuro .logo-subtitle {
+    color: #cccccc;
+}
+
+body.escuro .nav-link {
+    color: #dddddd;
+}
+
+body.escuro .nav-link.active {
+    color: #ff6a55;
+}
+
+body.escuro .search-box input {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    border-color: #555;
+}
+
+body.escuro .hero {
+    background: linear-gradient(135deg, #1e1a10 0%, #121212 100%);
+}
+
+body.escuro .hero-title,
+body.escuro .section-header .section-title,
+body.escuro .why .section-title,
+body.escuro .course-title {
+    color: #f5f5f5;
+}
+
+body.escuro .hero-text,
+body.escuro .course-text,
+body.escuro .why-item p {
+    color: #bbbbbb;
+}
+
+body.escuro .btn-hero-outline {
+    color: #f5f5f5;
+}
+
+body.escuro .courses {
+    background-color: #121212;
+}
+
+body.escuro .course-card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+body.escuro .why {
+    background-color: #181818;
+}
+
+body.escuro .why-item {
+    border-left-color: #333;
+}
 
 /* =========================================================
-   10) RESPONSIVIDADE - TABLETS
+   RESPONSIVIDADE - TABLETS
    ========================================================= */
 
 @media (max-width: 992px) {
 
+    .hero-title {
+        font-size: 38px;
+    }
+
+    .hero-container {
+        gap: 28px;
+    }
+
+    .hero-features {
+        gap: 16px;
+    }
+
     .why-grid {
         grid-template-columns: repeat(2, 1fr);
-        row-gap: 32px;
+        row-gap: 28px;
     }
 
     .why-item:nth-child(3) {
@@ -969,133 +1147,67 @@ body {
     }
 
     .footer-container {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
-
-    .header-container {
-        gap: 16px;
-    }
-
-    .main-nav {
-        gap: 16px;
-    }
-
-    .search-box input {
-        width: 160px;
-    }
-
 }
 
-
 /* =========================================================
-   11) RESPONSIVIDADE - CELULARES
+   RESPONSIVIDADE - CELULARES
    ========================================================= */
 
 @media (max-width: 768px) {
 
-    /* CABEÇALHO */
-
-    .header-container {
-        padding: 14px 20px;
+    .container {
+        padding: 0 18px;
     }
 
-=======
-    position: absolute; /* Coloca a lupa sobre a área de pesquisa */
-    right: 14px;
-    fill: var(--color-text-light); /* Aplica a cor de preenchimento do ícone */
-    pointer-events: none; /* Permite interagir com o campo sem bloquear o clique */
-    width: 20px;
-}
+    /* HEADER */
 
-.btn-primary {
-    font-family: var(--font-main);
-    background-color: var(--color-primary);
-    color: #FFF;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer; /* Indica visualmente que o botão pode ser pressionado */
-    white-space: nowrap; /* Mantém o conteúdo do botão na mesma linha */
-}
+    .header-container {
+        gap: 12px;
+        padding: 16px;
+    }
 
-.btn-primary:hover {
-    background-color: var(--color-primary-dark); /* Aplica uma cor diferente durante o hover */
-}
+    .logo img {
+        width: 50px;
+    }
 
-.hamburguer {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text);
-}
-
-/* Adaptação do layout para celulares */
-@media (max-width: 768px) {
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
     .search-box {
         display: none;
     }
 
-<<<<<<< HEAD
-    .main-nav {
-        display: none;
-
-        flex-direction: column;
-        align-items: flex-end;
-=======
-    /* Define a disposição do menu nas telas menores */
     .main-nav {
         display: none;
         flex-direction: column;
         align-items: flex-start;
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
-
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-<<<<<<< HEAD
-
-        background-color: var(--color-bg);
-
-        border-bottom: 1px solid var(--color-border);
-
-=======
         background-color: var(--color-bg);
         border-bottom: 1px solid var(--color-border);
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
         padding: 16px 24px;
         gap: 16px;
     }
 
-<<<<<<< HEAD
-    .main-nav.ativo {
-=======
-    /* Exibe as opções de navegação após a ativação pelo JavaScript */
     .main-nav.active {
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
         display: flex;
     }
 
+    .header-actions {
+        gap: 8px;
+    }
+
     .btn-primary {
-<<<<<<< HEAD
-        display: none;
-=======
-        display: flex;
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
+        padding: 10px 12px;
+        font-size: 12px;
     }
 
     .hamburguer {
         display: flex;
-<<<<<<< HEAD
         align-items: center;
         justify-content: center;
     }
-
 
     /* HERO */
 
@@ -1105,50 +1217,67 @@ body {
 
     .hero-container {
         flex-direction: column-reverse;
-        gap: 24px;
+        gap: 28px;
+    }
+
+    .hero-content,
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-image img {
+        max-width: 420px;
     }
 
     .hero-title {
-        font-size: 30px;
+        font-size: 34px;
     }
 
     .hero-text {
         font-size: 15px;
     }
 
-    .hero-features {
-        gap: 16px;
+    .hero-buttons {
+        gap: 10px;
     }
 
+    .btn-hero,
+    .btn-hero-outline {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+
+    .hero-feature {
+        flex: 1 1 140px;
+    }
 
     /* CARDÁPIO */
 
     .courses {
-        padding: 40px 0;
+        padding: 44px 0;
     }
 
     .section-header {
-        gap: 12px;
-        flex-wrap: wrap;
+        align-items: flex-start;
+        flex-direction: column;
     }
 
     .section-title {
-        font-size: 21px;
+        font-size: 23px;
+    }
+
+    .course-card {
+        flex-basis: 245px;
     }
 
     .carousel-btn {
         display: none;
     }
 
-    .course-card {
-        flex-basis: 240px;
-    }
-
-
-    /* SOBRE */
+    /* BENEFÍCIOS */
 
     .why {
-        padding: 40px 0;
+        padding: 44px 0;
     }
 
     .why-grid {
@@ -1161,29 +1290,44 @@ body {
         padding: 0;
     }
 
+    /* CHAMADA FINAL */
 
-    /* RODAPÉ */
+    .cta {
+        padding: 48px 20px;
+    }
+
+    .cta h2 {
+        font-size: 27px;
+    }
+
+    .cta p {
+        font-size: 14px;
+    }
+
+    /* FOOTER */
+
+    .footer {
+        padding-top: 40px;
+    }
 
     .footer-container {
         grid-template-columns: 1fr;
         gap: 28px;
     }
 
+    body.escuro .main-nav {
+        background-color: #1e1e1e;
+    }
 }
 
-
 /* =========================================================
-   12) CELULARES PEQUENOS
+   TELAS MUITO PEQUENAS
    ========================================================= */
 
-@media (max-width: 480px) {
-
-    .container {
-        padding: 0 18px;
-    }
+@media (max-width: 400px) {
 
     .hero-title {
-        font-size: 27px;
+        font-size: 29px;
     }
 
     .hero-buttons {
@@ -1192,89 +1336,482 @@ body {
 
     .btn-hero,
     .btn-hero-outline {
-        justify-content: center;
         width: 100%;
     }
 
-    .hero-features {
-        flex-direction: column;
-    }
-
-    .section-header {
-        align-items: flex-start;
-        flex-direction: column;
+    .hero-feature {
+        flex-basis: 100%;
     }
 
     .course-card {
-        flex-basis: 85%;
+        flex-basis: 225px;
     }
 
+    .section-title {
+        font-size: 21px;
+    }
 }
-
 
 /* =========================================================
-   13) AJUSTES FINAIS DE ACESSIBILIDADE E COMPATIBILIDADE
+   CORREÇÕES E AJUSTES FINAIS
    ========================================================= */
 
-img {
-    max-width: 100%;
-    height: auto;
+/* PADRONIZAÇÃO GERAL */
+
+html {
+    width: 100%;
+    overflow-x: hidden;
 }
 
-a:focus-visible,
+body {
+    min-width: 320px;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font-family: var(--font-main);
+}
+
 button:focus-visible,
+a:focus-visible,
 input:focus-visible {
-    outline: 3px solid var(--color-primary);
+    outline: 2px solid var(--color-secondary);
     outline-offset: 3px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+/* COMPATIBILIDADE COM NOMES ANTIGOS DA LOGO */
 
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-    }
-=======
-    }
-}
-body.escuro {
-    --color-text: #f9fafb;
-    --color-text-light: #d1d5db;
-    --color-border: #374151;
-    --color-bg: #111827;
-}
-
-/* Modo escuro */
-body.escuro {
-    --color-text: #f9fafb;
-    --color-text-light: #d1d5db;
-    --color-border: #374151;
-    --color-bg: #111827;
-}
-
-/* Estilo do botão de tema */
-#btn-tema {
-    font-family: var(--font-main);
-    padding: 10px 14px;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    background-color: var(--color-bg);
+.logo-tittle,
+.logo-title {
+    font-size: 16px;
+    font-weight: 600;
     color: var(--color-text);
-    cursor: pointer;
 }
 
-/* Mantém as cores do menu e dos botões coerentes */
-body,
-.header,
-.main-nav,
+.Logo-subtitle,
+.logo-subtitle {
+    font-size: 12px;
+    color: var(--color-text-light);
+}
+
+/* IMAGEM DO CARDÁPIO */
+
+.imagem-cardapio {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 20px auto;
+}
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    width: 100%;
+}
+
+.header-actions {
+    flex-shrink: 0;
+}
+
+.main-nav {
+    flex-shrink: 0;
+}
+
+/* BUSCA */
+
 .search-box input {
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
->>>>>>> 4e75cd69c9b4022388720550ff1f083a78af1cab
+    max-width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-box input:focus {
+    box-shadow: 0 0 0 3px rgba(230, 57, 36, 0.12);
+}
+
+/* BOTÕES */
+
+.btn-primary,
+.btn-hero,
+.btn-hero-outline,
+.carousel-btn {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-primary:active,
+.btn-hero:active,
+.btn-hero-outline:active {
+    transform: scale(0.97);
+}
+
+/* BANNER PRINCIPAL */
+
+.hero {
+    width: 100%;
+}
+
+.hero-container {
+    width: 100%;
+}
+
+.hero-content {
+    min-width: 0;
+}
+
+.hero-image {
+    min-width: 0;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    max-height: 430px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* CARDS */
+
+.course-card {
+    min-width: 0;
+}
+
+.course-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.course-title {
+    line-height: 1.3;
+}
+
+.course-text {
+    line-height: 1.6;
+}
+
+/* CARROSSEL */
+
+.course-list {
+    width: 100%;
+    overscroll-behavior-x: contain;
+}
+
+.carousel-btn {
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* FOOTER */
+
+.footer {
+    width: 100%;
+}
+
+.footer-container {
+    width: 100%;
+}
+
+.social-links a {
+    flex-shrink: 0;
+}
+
+/* MODO ESCURO - COMPLEMENTOS */
+
+body.escuro .logo-tittle,
+body.escuro .logo-title {
+    color: #f5f5f5;
+}
+
+body.escuro .Logo-subtitle,
+body.escuro .logo-subtitle {
+    color: #cccccc;
+}
+
+body.escuro .btn-hero-outline {
+    border-color: #FFC107;
+}
+
+body.escuro .btn-hero-outline:hover {
+    background-color: #333333;
+}
+
+body.escuro .course-info {
+    color: #f5f5f5;
+}
+
+body.escuro .course-lessons {
+    color: #ff806d;
+}
+
+body.escuro .hero-feature small {
+    color: #bbbbbb;
+}
+
+body.escuro .carousel-btn {
+    background-color: #FFC107;
+    color: #202020;
+}
+
+body.escuro .carousel-btn:hover {
+    background-color: #E63924;
+    color: #ffffff;
+}
+
+body.escuro .search-box input::placeholder {
+    color: #bbbbbb;
+}
+
+/* TABLETS */
+
+@media (max-width: 992px) {
+
+    .header-container {
+        gap: 16px;
+    }
+
+    .main-nav {
+        gap: 18px;
+    }
+
+    .header-actions {
+        gap: 10px;
+    }
+
+    .search-box input {
+        width: 170px;
+    }
+
+    .hero-image img {
+        max-height: 360px;
+    }
+
+    .why-item {
+        padding: 12px;
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 768px) {
+
+    .header {
+        position: sticky;
+        top: 0;
+    }
+
+    .header-container {
+        padding: 12px 16px;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .main-nav.active {
+        display: flex;
+    }
+
+    .header-actions {
+        margin-left: auto;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 300px;
+        border-radius: 16px;
+    }
+
+    .hero-content {
+        text-align: left;
+    }
+
+    .hero-features {
+        justify-content: flex-start;
+    }
+
+    .course-list {
+        padding-bottom: 24px;
+    }
+
+    .course-card {
+        flex: 0 0 245px;
+    }
+
+    .footer-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 400px) {
+
+    .header-container {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .logo {
+        gap: 5px;
+    }
+
+    .logo img {
+        width: 42px;
+    }
+
+    .logo-title,
+    .logo-tittle {
+        font-size: 14px;
+    }
+
+    .logo-subtitle,
+    .Logo-subtitle {
+        font-size: 10px;
+    }
+
+    .btn-primary {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .hero-image img {
+        max-height: 240px;
+    }
+
+    .course-card {
+        flex-basis: 225px;
+    }
+}
+
+/* TELAS GRANDES */
+
+@media (min-width: 1400px) {
+
+    .container,
+    .header-container {
+        max-width: 1280px;
+    }
+
+    .hero {
+        padding: 88px 0;
+    }
+
+    .hero-image img {
+        max-width: 560px;
+    }
+}
+
+
+/* =================================
+   SEÇÃO DE RECOMENDAÇÕES
+================================= */
+
+.recomendacoes {
+    width: 100%;
+    padding: 50px 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.recomendacoes h1 {
+    font-size: 34px;
+    color: #c62828;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.recomendacoes p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* =================================
+   IMAGEM DO CARDÁPIO
+================================= */
+
+.imagem-cardapio {
+    display: block;
+
+    width: 100%;
+    max-width: 520px;
+    height: 320px;
+
+    margin: 0 auto;
+
+    object-fit: cover;
+    object-position: center;
+
+    border: 6px solid #ffffff;
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(198, 40, 40, 0.10);
+
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.imagem-cardapio:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.18),
+        0 5px 15px rgba(131, 6, 6, 0.15);
+}
+
+/* =================================
+   RESPONSIVIDADE
+================================= */
+
+@media (max-width: 600px) {
+
+    .recomendacoes {
+        padding: 35px 15px;
+    }
+
+    .recomendacoes h1 {
+        font-size: 27px;
+    }
+
+    .recomendacoes p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    .imagem-cardapio {
+        width: 100%;
+        height: 240px;
+        border-width: 4px;
+        border-radius: 18px;
+    }
 }

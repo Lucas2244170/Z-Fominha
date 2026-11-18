@@ -1,91 +1,650 @@
 <!DOCTYPE html>
 <!-- Deus é fiel. -->
+<!-- Declara que este documento usa HTML5 -->
+
 <html lang="pt-BR">
+    <!-- Elemento raiz da página. Lang="pt-BR" define o idioma -->
 
 <head>
+    <!-- Informações de bastidores: não aparecem diretamente na tela -->
+
     <meta charset="UTF-8">
+    <!-- Codificação de caracteres, garante acentos corretos -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ativa a responsividade em dispositivos móveis -->
 
     <title>Zé Fominha</title>
+    <!-- Título exibido na aba do navegador -->
 
-    <!-- Arquivo CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Conecta o arquivo de estilos (CSS) -->
 
-    <!-- Fonte Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
+    <!-- Tudo o que o usuário vê e interage fica aqui -->
 
     <header class="header">
-        <div class="header-container">
+        <!-- Tag semântica: indica o cabeçalho da página -->
 
-            <!-- Logo -->
+        <div class="header-container">
+            <!-- Container que agrupa e centraliza o conteúdo do header -->
+
             <a href="./index.html" class="logo">
-                <img src="./assets/logo zé forminha.jpg"
-                     alt="Logo Zé Fominha"
-                     width="60">
+                <!-- Logo clicável, leva para a home -->
+
+                <img src="./assets/logo zé forminha.jpg"Logo Zé Fominha" width="60">
+                <!-- img: adiciona imagem / src: caminho da imagem / alt: legenda da imagem -->
 
                 <span class="logo-text">
                     <span class="logo-tittle">Zé Fominha</span>
                     <span class="Logo-subtitle">O melhor delivery</span>
                 </span>
+
             </a>
 
-            <!-- Menu de navegação -->
-            <nav class="main-nav" id="menu">
+            <nav class="main-nav">
+                <!-- Tag semântica para o menu de navegação -->
+
                 <a href="./index.html" class="nav-link active">Início</a>
+                <!-- a (link) para navegação | "active" destaca a página atual -->
+
                 <a href="./cardapio.html" class="nav-link">Cardápio</a>
                 <a href="./Sobre.html" class="nav-link">Sobre</a>
                 <a href="./Carrinho.html" class="nav-link">Carrinho</a>
+
             </nav>
 
-            <!-- Pesquisa e botões -->
             <div class="header-actions">
+                <!-- Agrupa os botões de busca e botão CTA -->
 
                 <div class="search-box">
-                    <input
-                        type="text"
-                        placeholder="Buscar"
-                        aria-label="Buscar"
-                    >
+                    <input type="text" placeholder="Buscar" aria-label="Buscar">
+                    <!-- Input: campo de entrada | placeholder some assim que o usuário digita -->
 
-                    <img
-                        class="search-icon"
-                        src="./assets/64673.png"
-                        alt=""
-                        width="20"
-                    >
+                    <img class="search-icon" src="./assets/64673.png"" width="20">
+                    <!-- Ícone vetorial da lupa -->
+
                 </div>
 
-                <button type="button" class="btn-primary">
-                    Cadastro
-                </button>
+                <button type="button" class="btn-primary">Cadastrar conta</button>
+                <!-- Botão para ações de página -->
 
-                <!-- Botão do menu para telas pequenas -->
-                <button
-                    type="button"
-                    class="hamburguer"
-                    id="btn-menu"
-                    aria-controls="menu"
-                    aria-expanded="false"
-                >
-                    ☰ Menu
-                </button>
+                <button type="button" class="btn-primary">Acessar conta</button>
+                <!-- Botão para ações de página -->
 
-                <!-- Botão de modo escuro -->
-                <button type="button" id="btn-tema">
-                    🌙 Modo escuro
-                </button>
+                <button type="button" class="hamburguer" id="btn-menu">☰ Menu</button>
+
+                <button type="button" id="btn-tema" class="btn-primary">🌙 Modo escuro</button>
 
             </div>
         </div>
     </header>
 
-    <!-- JavaScript -->
-    <script src="./js/script.js"></script>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
+<!-- ATUALIZAÇÃO -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Zé Fominha | Delivery</title>
+
+    <!-- Fonte de ícones Material Symbols -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <div class="container hero-container">
+
+            <div class="hero-content">
+
+                <h1 class="hero-title">
+                    Bateu a fome?
+                    <span class="text-highlight">
+                        Chama o Zé Fominha!
+                    </span>
+                </h1>
+
+                <p class="hero-text">
+                    Hambúrgueres suculentos, porções deliciosas e
+                    aquele lanche especial que você merece.
+                    Peça agora e receba no conforto da sua casa!
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="./cardapio.html" class="btn-hero">
+                        Fazer meu pedido
+                        <span class="material-symbols-outlined icon-sm"
+                            aria-hidden="true">arrow_forward</span>
+                    </a>
+
+                    <a href="#destaques" class="btn-hero-outline">
+                        Ver cardápio
+                    </a>
+
+                </div>
+
+                <!-- Vantagens -->
+                <ul class="hero-features">
+
+                    <li class="hero-feature">
+                        <span class="feature-icon">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">delivery_dining</span>
+                        </span>
+                        <div>
+                            <strong>Delivery rápido</strong>
+                            <small>Receba em casa</small>
+                        </div>
+                    </li>
+
+                    <li class="hero-feature">
+                        <span class="feature-icon feature-icon-green">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">restaurant</span>
+                        </span>
+                        <div>
+                            <strong>Sabor incrível</strong>
+                            <small>Feito com carinho</small>
+                        </div>
+                    </li>
+
+                    <li class="hero-feature">
+                        <span class="feature-icon">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">payments</span>
+                        </span>
+                        <div>
+                            <strong>Preço justo</strong>
+                            <small>Qualidade e economia</small>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- Imagem principal -->
+            <div class="hero-image">
+                <img src="assets/zé forminha.jpeg"
+                    
+                alt="Opição de comida">
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ================= MAIS PEDIDOS ================= -->
+    <section class="courses" id="destaques">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <h2 class="section-title">
+                    Os queridinhos do Zé
+                </h2>
+
+                <a href="./cardapio.html" class="link-arrow">
+                    Ver cardápio completo
+                    <span class="material-symbols-outlined icon-sm"
+                        aria-hidden="true">arrow_forward</span>
+                </a>
+
+            </div>
+
+            <div class="carousel">
+
+                <div class="course-list" id="course-list">
+
+                    <!-- PRODUTO 1 -->
+                    <article class="course-card">
+
+                        <div class="course-icon icon-orange">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">lunch_dining</span>
+                        </div>
+
+                        <h3 class="course-title">
+                            X-Burguer
+                        </h3>
+
+                        <p class="course-text">
+                            Pão macio, hambúrguer artesanal, queijo,
+                            alface, tomate e molho especial.
+                        </p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                Mais vendido
+                            </span>
+                            <span class="course-lessons">
+                                R$ 22,90
+                            </span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 2 -->
+                    <article class="course-card">
+
+                        <div class="course-icon icon-yellow">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">fastfood</span>
+                        </div>
+
+                        <h3 class="course-title">
+                            X-Bacon
+                        </h3>
+
+                        <p class="course-text">
+                            Hambúrguer artesanal, queijo derretido,
+                            bacon crocante e molho especial.
+                        </p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                Especial do Zé
+                            </span>
+                            <span class="course-lessons">
+                                R$ 27,90
+                            </span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 3 -->
+                    <article class="course-card">
+
+                        <div class="course-icon icon-green">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">tapas</span>
+                        </div>
+
+                        <h3 class="course-title">
+                            Batata Frita
+                        </h3>
+
+                        <p class="course-text">
+                            Batatas crocantes por fora e macias
+                            por dentro. Uma delícia!
+                        </p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                Acompanhamento
+                            </span>
+                            <span class="course-lessons">
+                                R$ 15,00
+                            </span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 4 -->
+                    <article class="course-card">
+
+                        <div class="course-icon icon-blue">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">local_pizza</span>
+                        </div>
+
+                        <h3 class="course-title">
+                            Pizza Especial
+                        </h3>
+
+                        <p class="course-text">
+                            Massa saborosa, muito queijo e
+                            ingredientes selecionados.
+                        </p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                Favorito
+                            </span>
+                            <span class="course-lessons">
+                                R$ 39,90
+                            </span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 5 -->
+                    <article class="course-card">
+
+                        <div class="course-icon icon-purple">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">local_cafe</span>
+                        </div>
+
+                        <h3 class="course-title">
+                            Milk-shake
+                        </h3>
+
+                        <p class="course-text">
+                            Milk-shake cremoso e geladinho,
+                            perfeito para acompanhar seu lanche.
+                        </p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                Bebida especial
+                            </span>
+                            <span class="course-lessons">
+                                R$ 14,90
+                            </span>
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 6 -->
+                    <article class="course-card">
+
+                        <div class="course-icon icon-orange">
+                            <span class="material-symbols-outlined"
+                                aria-hidden="true">local_drink</span>
+                        </div>
+
+                        <h3 class="course-title">
+                            Refrigerante
+                        </h3>
+
+                        <p class="course-text">
+                            Bebida gelada para deixar seu pedido
+                            ainda mais completo.
+                        </p>
+
+                        <div class="course-info">
+                            <span class="course-level">
+                                Bebida
+                            </span>
+                            <span class="course-lessons">
+                                R$ 7,00
+                            </span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Botões do carrossel -->
+                <button class="carousel-btn carousel-prev"
+                    id="btn-prev"
+                    aria-label="Produtos anteriores">
+
+                    <span class="material-symbols-outlined"
+                        aria-hidden="true">chevron_left</span>
+
+                </button>
+
+                <button class="carousel-btn carousel-next"
+                    id="btn-next"
+                    aria-label="Próximos produtos">
+
+                    <span class="material-symbols-outlined"
+                        aria-hidden="true">chevron_right</span>
+
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= POR QUE PEDIR AQUI ================= -->
+    <section class="why" id="por-que">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Por que escolher o Zé Fominha?
+            </h2>
+
+            <div class="why-grid">
+
+                <div class="why-item">
+
+                    <span class="material-symbols-outlined why-icon"
+                        aria-hidden="true">delivery_dining</span>
+
+                    <div>
+                        <h3>Entrega rápida</h3>
+                        <p>
+                            Seu pedido chega até você com praticidade
+                            e todo cuidado.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="why-item">
+
+                    <span class="material-symbols-outlined why-icon why-icon-green"
+                        aria-hidden="true">restaurant</span>
+
+                    <div>
+                        <h3>Ingredientes de qualidade</h3>
+                        <p>
+                            Produtos selecionados para proporcionar
+                            uma experiência deliciosa.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="why-item">
+
+                    <span class="material-symbols-outlined why-icon"
+                        aria-hidden="true">favorite</span>
+
+                    <div>
+                        <h3>Feito com carinho</h3>
+                        <p>
+                            Cada pedido preparado pensando
+                            na sua satisfação.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="why-item">
+
+                    <span class="material-symbols-outlined why-icon why-icon-green"
+                        aria-hidden="true">shopping_bag</span>
+
+                    <div>
+                        <h3>Pedido fácil</h3>
+                        <p>
+                            Escolha seus produtos e faça seu pedido
+                            de maneira simples e rápida.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= CHAMADA FINAL ================= -->
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                A fome não espera!
+            </h2>
+
+            <p>
+                Não fique só na vontade. Peça agora no Zé Fominha!
+            </p>
+
+            <a href="./cardapio.html" class="btn-hero">
+                Quero pedir agora
+                <span class="material-symbols-outlined"
+                    aria-hidden="true">arrow_forward</span>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+
+    <div class="container footer-container">
+
+        <!-- LOGO -->
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+
+                <img src="./Assets/10154ccf-c654-463b-83f0-b17955331cc9.jpg"
+                    alt="Logo Zé Fominha">
+
+                <span class="logo-text">
+
+                    <span class="logo-title">
+                        Zé Fominha
+                    </span>
+
+                    <span class="logo-subtitle">
+                        Matando sua fome!
+                    </span>
+
+                </span>
+
+            </a>
+
+        </div>
+
+
+        <!-- NAVEGAÇÃO -->
+        <div class="footer-column">
+
+            <h4>Navegação</h4>
+
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="./cardapio.html">Cardápio</a></li>
+                <li><a href="#destaques">Mais pedidos</a></li>
+                <li><a href="#por-que">Sobre nós</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- LINKS ÚTEIS -->
+        <div class="footer-column">
+
+            <h4>Atendimento</h4>
+
+            <ul>
+                <li><a href="./cardapio.html">Fazer pedido</a></li>
+                <li><a href="#">Horários de funcionamento</a></li>
+                <li><a href="#">Área de entrega</a></li>
+                <li><a href="#">Formas de pagamento</a></li>
+            </ul>
+
+        </div>
+
+
+        <!-- REDES SOCIAIS -->
+        <div class="footer-column">
+
+            <h4>Redes sociais</h4>
+
+            <div class="social-links">
+
+                <a href="https://instagram.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram">
+
+                    <i class="fa-brands fa-instagram"
+                        aria-hidden="true"></i>
+
+                </a>
+
+                <a href="https://facebook.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook">
+
+                    <i class="fa-brands fa-facebook"
+                        aria-hidden="true"></i>
+
+                </a>
+
+                <a href="https://wa.me/5500000000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp">
+
+                    <i class="fa-brands fa-whatsapp"
+                        aria-hidden="true"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+    <p class="footer-copy">
+
+        &copy; <span id="ano"></span>
+        Zé Fominha. Todos os direitos reservados.
+
+    </p>
+
+</footer>
+
+
+<script src="./js/script.js"></script>
 
 </body>
 </html>

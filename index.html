@@ -1,650 +1,486 @@
 <!DOCTYPE html>
-<!-- Deus é fiel. -->
 <!-- Declara que este documento usa HTML5 -->
 
 <html lang="pt-BR">
-    <!-- Elemento raiz da página. Lang="pt-BR" define o idioma -->
+<!-- Elemento raiz da página. lang="pt-BR" define o idioma  -->
 
 <head>
-    <!-- Informações de bastidores: não aparecem diretamente na tela -->
+    <!-- Informações de bastidores: não aparecem diretamente na tela  -->
 
-    <meta charset="UTF-8">
-    <!-- Codificação de caracteres, garante acentos corretos -->
+    <meta charset="UTF-8"> <!-- Codificação de caracteres, garante acentos corretos -->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Ativa a responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ativa a responsividade em dispositivos móveis -->
 
-    <title>Zé Fominha</title>
-    <!-- Título exibido na aba do navegador -->
+    <title>Zé Fominha | Delivery</title> <!-- Titulo exibido na aba do navegador -->
 
     <link rel="stylesheet" href="style.css">
     <!-- Conecta o arquivo de estilos (CSS) -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Importando fonte do Google Fonts -->
 
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+    <!-- NOVO: importa os ícones Material Symbols (também do Google Fonts) -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- NOVO: importa o Font Awesome, usado nos ícones das redes sociais
+         (o Material Symbols não tem logos de marcas) -->
 </head>
-
 <body>
-    <!-- Tudo o que o usuário vê e interage fica aqui -->
+    <!-- Tudo que o usuário vê e interage fica aqui -->
 
     <header class="header">
         <!-- Tag semântica: indica o cabeçalho da página -->
 
         <div class="header-container">
-            <!-- Container que agrupa e centraliza o conteúdo do header -->
+        <!-- Container que agrupa e centraliza o conteúdo do header -->
 
-            <a href="./index.html" class="logo">
+            <a href="index.html" class="logo">
                 <!-- Logo clicável, leva para a home -->
 
-                <img src="./assets/logo zé forminha.jpg"Logo Zé Fominha" width="60">
+                <img src="./assets/logo zé forminha.jpg" alt="Logo Zé Fominha">
                 <!-- img: adiciona imagem / src: caminho da imagem / alt: legenda da imagem -->
 
                 <span class="logo-text">
-                    <span class="logo-tittle">Zé Fominha</span>
-                    <span class="Logo-subtitle">O melhor delivery</span>
+                    <!-- span: elemento de texto inline, não quebra linha sozinho -->
+                    <span class="logo-title">Zé Fominha</span>
+                    <span class="logo-subtitle">Sabor que mata a fome</span>
                 </span>
-
             </a>
 
             <nav class="main-nav">
+                <!-- Correção: antes havia dois atributos "class" aqui. O navegador só lê o primeiro,
+                     e quem liga/desliga a classe "ativo" é o JavaScript. -->
                 <!-- Tag semântica para o menu de navegação -->
 
-                <a href="./index.html" class="nav-link active">Início</a>
-                <!-- a (link) para navegação | "active" destaca a página atual -->
+                <a href="index.html" class="nav-link active">Início</a>
+                <!-- a (link) para navegação | href é o caminho da página | "active" destaca a página atual -->
 
                 <a href="./cardapio.html" class="nav-link">Cardápio</a>
-                <a href="./Sobre.html" class="nav-link">Sobre</a>
-                <a href="./Carrinho.html" class="nav-link">Carrinho</a>
+                <a href="./sobre.html" class="nav-link">Sobre nós</a>
+                <a href="./contato.html" class="nav-link">Contato</a>
 
+                <!-- Link que só aparece no menu do CELULAR
+                     (no celular, o botão "Começar agora" fica escondido) -->
+                <a href="./entrar.html" class="nav-link nav-link-mobile">Entrar / Cadastrar</a>
             </nav>
 
             <div class="header-actions">
                 <!-- Agrupa os botões de busca e botão CTA -->
 
                 <div class="search-box">
-                    <input type="text" placeholder="Buscar" aria-label="Buscar">
-                    <!-- Input: campo de entrada | placeholder some assim que o usuário digita -->
+                    <input type="text" placeholder="Buscar no cardápio...">
+                    <!-- input campo de entrada | placeholder some assim que o usuário digita -->
 
-                    <img class="search-icon" src="./assets/64673.png"" width="20">
-                    <!-- Ícone vetorial da lupa -->
-
+                    <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+                    <!-- Ícone da lupa (Material Symbols): não depende mais de arquivo na pasta assets -->
                 </div>
 
-                <button type="button" class="btn-primary">Cadastrar conta</button>
-                <!-- Botão para ações de página -->
+                <!-- PASSO 6: saudação ao aluno logado. Começa escondida (hidden);
+                     o JavaScript escreve "Olá, Nome!" e mostra quando há alguém logado -->
+                <span class="user-greeting" id="saudacao" hidden></span>
 
-                <button type="button" class="btn-primary">Acessar conta</button>
-                <!-- Botão para ações de página -->
-
-                <button type="button" class="hamburguer" id="btn-menu">☰ Menu</button>
-
-                <button type="button" id="btn-tema" class="btn-primary">🌙 Modo escuro</button>
-
+                <a href="./cardapio.html" class="btn-primary">Fazer pedido</a>
+                <!-- Antes era um <button>. Virou um link <a> com a MESMA classe (mesma aparência),
+                     porque agora ele precisa LEVAR o usuário para a página de login (entrar.html) -->
             </div>
+
+            <!-- Botão do menu hamburguer (funciona apenas para mobile) -->
+            <button class="hamburguer" id="btn-menu">☰</button>
         </div>
     </header>
 
-    
-    <script src="js/script.js"></script>
-</body>
-</html>
 
+    <!-- =====================================================
+         CONTINUAÇÃO DO PROJETO
+         -----------------------------------------------------
+         SOBRE OS ÍCONES: usamos o Material Symbols, uma
+         coleção GRATUITA de ícones do Google Fonts.
+         Como funciona:
+           1. No <head>, carregamos a fonte de ícones (link NOVO).
+           2. Onde queremos um ícone, escrevemos:
+              <span class="material-symbols-outlined">home</span>
+              O NOME do ícone (ex: "home") vira o desenho!
+           3. Como o ícone é uma FONTE, ele muda com
+              "font-size" (tamanho) e "color" (cor) no CSS.
+         Para achar outros ícones: fonts.google.com/icons
+         (pesquise em inglês e copie o nome do ícone).
+         aria-hidden="true": leitores de tela ignoram o ícone,
+         pois ele é só decoração.
+         ===================================================== -->
 
-<!-- ATUALIZAÇÃO -->
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <main>
+        <!-- Tag semântica: o conteúdo PRINCIPAL da página (só existe um por página) -->
 
-    <title>Zé Fominha | Delivery</title>
+        <!-- ---------------- SEÇÃO HERO ----------------
+             "Hero" é a primeira seção grande do site,
+             a que o visitante vê assim que a página abre. -->
+        <section class="hero">
+            <!-- section: agrupa um bloco de conteúdo sobre o mesmo assunto -->
 
-    <!-- Fonte de ícones Material Symbols -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+            <div class="container hero-container">
+                <!-- "container" centraliza o conteúdo (mesma ideia do header-container) -->
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+                <!-- Lado esquerdo: textos e botões -->
+                <div class="hero-content">
 
-    <!-- CSS do projeto -->
-    <link rel="stylesheet" href="./css/style.css">
-</head>
+                    <h1 class="hero-title">
+                        <!-- h1: o título mais importante da página (use só UM h1) -->
+                        <span class="text-highlight">Zé Fominha</span>
+                        entrega sabor até você
+                    </h1>
 
-<body>
+                    <p class="hero-text">
+                        Hamburgers suculentos, porções generosas e aquele sabor de casa.
+                        Peça online e receba a refeição perfeita rapidinho.
+                    </p>
 
-<main>
+                    <div class="hero-buttons">
+                        <!-- Links com aparência de botão -->
+                        <a href="./cardapio.html" class="btn-hero">
+                            Ver cardápio
+                            <!-- Ícone: seta para a direita -->
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
 
-    <!-- ================= HERO ================= -->
-    <section class="hero">
-        <div class="container hero-container">
+                        <a href="#por-que" class="btn-hero-outline">Por que pedir aqui?</a>
+                        <!-- href="#por-que" rola a página até o elemento com id="por-que" -->
+                    </div>
 
-            <div class="hero-content">
+                    <!-- Lista de vantagens -->
+                    <ul class="hero-features">
+                        <!-- ul: lista sem números | li: cada item -->
 
-                <h1 class="hero-title">
-                    Bateu a fome?
-                    <span class="text-highlight">
-                        Chama o Zé Fominha!
-                    </span>
-                </h1>
+                        <li class="hero-feature">
+                            <span class="feature-icon">
+                                <!-- Ícone: livro aberto -->
+                                <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+                            </span>
+                            <div>
+                                <strong>Entrega rápida</strong>
+                                <small>A caminho em minutos</small>
+                            </div>
+                        </li>
 
-                <p class="hero-text">
-                    Hambúrgueres suculentos, porções deliciosas e
-                    aquele lanche especial que você merece.
-                    Peça agora e receba no conforto da sua casa!
-                </p>
+                        <li class="hero-feature">
+                            <span class="feature-icon feature-icon-green">
+                                <!-- Ícone: gráfico de barras subindo -->
+                                <span class="material-symbols-outlined" aria-hidden="true">signal_cellular_alt</span>
+                            </span>
+                            <div>
+                                <strong>Pedido fácil</strong>
+                                <small>Sem complicação</small>
+                            </div>
+                        </li>
 
-                <div class="hero-buttons">
-
-                    <a href="./cardapio.html" class="btn-hero">
-                        Fazer meu pedido
-                        <span class="material-symbols-outlined icon-sm"
-                            aria-hidden="true">arrow_forward</span>
-                    </a>
-
-                    <a href="#destaques" class="btn-hero-outline">
-                        Ver cardápio
-                    </a>
-
+                        <li class="hero-feature">
+                            <span class="feature-icon">
+                                <!-- Ícone: escudo com "check" -->
+                                <span class="material-symbols-outlined" aria-hidden="true">verified_user</span>
+                            </span>
+                            <div>
+                                <strong>Qualidade</strong>
+                                <small>Ingredientes frescos</small>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- Vantagens -->
-                <ul class="hero-features">
+                <!-- Lado direito: imagem ilustrativa -->
+                <div class="hero-image">
+                    <img src="./assets/Imagem ilustrativa.jpg" alt="Ilustração de comida pronta para delivery">
+                </div>
+            </div>
+        </section>
 
-                    <li class="hero-feature">
-                        <span class="feature-icon">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">delivery_dining</span>
-                        </span>
+
+        <!-- ---------------- CURSOS EM DESTAQUE ---------------- -->
+        <section class="courses">
+            <div class="container">
+
+                <!-- Título à esquerda e link à direita -->
+                <div class="section-header">
+                    <h2 class="section-title">Mais pedidos</h2>
+                    <!-- h2: título de cada seção -->
+
+                    <a href="./cardapio.html" class="link-arrow">
+                        Ver cardápio completo
+                        <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                    </a>
+                </div>
+
+                <!-- Carrossel: lista de cards + botão de seta -->
+                <div class="carousel">
+
+                    <div class="course-list" id="course-list">
+
+                        <!-- CARD 1 -->
+                        <article class="course-card">
+                            <!-- article: conteúdo que faz sentido sozinho, como um card -->
+
+                            <div class="course-icon icon-blue">
+                                <!-- Ícone: código </> -->
+                                <span class="material-symbols-outlined" aria-hidden="true">lunch_dining</span>
+                            </div>
+
+                            <h3 class="course-title">X-Fominha</h3>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">sell</span>
+                                    Mais pedido
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                    30-40 min
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 2 -->
+                        <article class="course-card">
+                            <div class="course-icon icon-orange">
+                                <!-- Ícone: página web -->
+                                <span class="material-symbols-outlined" aria-hidden="true">local_pizza</span>
+                            </div>
+
+                            <h3 class="course-title">Pizza Fominha</h3>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">sell</span>
+                                    Mais pedido
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                    30-40 min
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 3 -->
+                        <article class="course-card">
+                            <div class="course-icon icon-yellow">
+                                <!-- Ícone: chaves { } (muito usadas no JavaScript) -->
+                                <span class="material-symbols-outlined" aria-hidden="true">lunch_dining</span>
+                            </div>
+
+                            <h3 class="course-title">Combo da Casa</h3>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">sell</span>
+                                    Mais pedido
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                    30-40 min
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 4 -->
+                        <article class="course-card">
+                            <div class="course-icon icon-green">
+                                <!-- Ícone: monitor -->
+                                <span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
+                            </div>
+
+                            <h3 class="course-title">Prato Executivo</h3>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">sell</span>
+                                    Mais pedido
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                    30-40 min
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 5 (extra, para o carrossel ter o que rolar) -->
+                        <article class="course-card">
+                            <div class="course-icon icon-purple">
+                                <!-- Ícone: banco de dados (cilindro) -->
+                                <span class="material-symbols-outlined" aria-hidden="true">icecream</span>
+                            </div>
+
+                            <h3 class="course-title">Sobremesas</h3>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">sell</span>
+                                    Mais pedido
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                    30-40 min
+                                </span>
+                            </div>
+                        </article>
+
+                        <!-- CARD 6 -->
+                        <article class="course-card">
+                            <div class="course-icon icon-orange">
+                                <!-- Ícone: rede de computadores -->
+                                <span class="material-symbols-outlined" aria-hidden="true">local_drink</span>
+                            </div>
+
+                            <h3 class="course-title">Bebidas Geladas</h3>
+
+                            <div class="course-info">
+                                <span class="course-level">
+                                    <span class="material-symbols-outlined icon-xs" aria-hidden="true">sell</span>
+                                    Mais pedido
+                                </span>
+                                <span class="course-lessons">
+                                    <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                                    30-40 min
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Botão de seta para VOLTAR (esquerda) -->
+                    <button class="carousel-btn carousel-prev" id="btn-prev" aria-label="Produtos anteriores">
+                        <span class="material-symbols-outlined" aria-hidden="true">chevron_left</span>
+                    </button>
+
+                    <!-- Botão de seta usado pelo JavaScript para rolar os cards -->
+                    <button class="carousel-btn carousel-next" id="btn-next" aria-label="Próximos produtos">
+                        <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ---------------- POR QUE ESTUDAR AQUI ---------------- -->
+        <section class="why" id="por-que">
+            <div class="container">
+                <h2 class="section-title">Por que pedir no Zé Fominha?</h2>
+
+                <div class="why-grid">
+
+                    <div class="why-item">
+                        <!-- Ícone: pessoas -->
+                        <span class="material-symbols-outlined why-icon" aria-hidden="true">group</span>
                         <div>
-                            <strong>Delivery rápido</strong>
-                            <small>Receba em casa</small>
+                            <h3>Sabor de verdade</h3>
+                            <p>Receitas feitas com cuidado e ingredientes selecionados.</p>
                         </div>
-                    </li>
+                    </div>
 
-                    <li class="hero-feature">
-                        <span class="feature-icon feature-icon-green">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">restaurant</span>
-                        </span>
+                    <div class="why-item">
+                        <!-- Ícone: presente -->
+                        <span class="material-symbols-outlined why-icon why-icon-green" aria-hidden="true">redeem</span>
                         <div>
-                            <strong>Sabor incrível</strong>
-                            <small>Feito com carinho</small>
+                            <h3>Ofertas especiais</h3>
+                            <p>Combos e promoções para todos os tamanhos de fome.</p>
                         </div>
-                    </li>
+                    </div>
 
-                    <li class="hero-feature">
-                        <span class="feature-icon">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">payments</span>
-                        </span>
+                    <div class="why-item">
+                        <!-- Ícone: alvo -->
+                        <span class="material-symbols-outlined why-icon" aria-hidden="true">track_changes</span>
                         <div>
-                            <strong>Preço justo</strong>
-                            <small>Qualidade e economia</small>
+                            <h3>Pedido rápido</h3>
+                            <p>A experiência foi pensada para você pedir em poucos passos.</p>
                         </div>
-                    </li>
+                    </div>
 
+                    <div class="why-item">
+                        <!-- Ícone: caminho entre dois pontos -->
+                        <span class="material-symbols-outlined why-icon why-icon-green" aria-hidden="true">route</span>
+                        <div>
+                            <h3>Entrega ágil</h3>
+                            <p>Acompanhe seu pedido e receba quentinho no seu endereço.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- ---------------- FOOTER (rodapé) ---------------- -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <!-- Coluna 1: logo -->
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <img src="./assets/logo zé forminha.jpg" alt="Logo Zé Fominha">
+                    <span class="logo-text">
+                        <span class="logo-title">Zé Fominha</span>
+                        <span class="logo-subtitle">Sabor que mata a fome</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Coluna 2: navegação -->
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="./cardapio.html">Cardápio</a></li>
+                    <li><a href="./sobre.html">Sobre nós</a></li>
+                    <li><a href="./contato.html">Contato</a></li>
                 </ul>
-
             </div>
 
-            <!-- Imagem principal -->
-            <div class="hero-image">
-                <img src="assets/zé forminha.jpeg"
-                    
-                alt="Opição de comida">
+            <!-- Coluna 3: links úteis -->
+            <div class="footer-column">
+                <h4>Links úteis</h4>
+                <ul>
+                    <li><a href="#por-que">Como funciona</a></li>
+                    <li><a href="./contato.html#faq">Perguntas frequentes</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de uso</a></li>
+                </ul>
             </div>
 
-        </div>
-    </section>
-
-
-    <!-- ================= MAIS PEDIDOS ================= -->
-    <section class="courses" id="destaques">
-
-        <div class="container">
-
-            <div class="section-header">
-
-                <h2 class="section-title">
-                    Os queridinhos do Zé
-                </h2>
-
-                <a href="./cardapio.html" class="link-arrow">
-                    Ver cardápio completo
-                    <span class="material-symbols-outlined icon-sm"
-                        aria-hidden="true">arrow_forward</span>
-                </a>
-
-            </div>
-
-            <div class="carousel">
-
-                <div class="course-list" id="course-list">
-
-                    <!-- PRODUTO 1 -->
-                    <article class="course-card">
-
-                        <div class="course-icon icon-orange">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">lunch_dining</span>
-                        </div>
-
-                        <h3 class="course-title">
-                            X-Burguer
-                        </h3>
-
-                        <p class="course-text">
-                            Pão macio, hambúrguer artesanal, queijo,
-                            alface, tomate e molho especial.
-                        </p>
-
-                        <div class="course-info">
-                            <span class="course-level">
-                                Mais vendido
-                            </span>
-                            <span class="course-lessons">
-                                R$ 22,90
-                            </span>
-                        </div>
-
-                    </article>
-
-
-                    <!-- PRODUTO 2 -->
-                    <article class="course-card">
-
-                        <div class="course-icon icon-yellow">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">fastfood</span>
-                        </div>
-
-                        <h3 class="course-title">
-                            X-Bacon
-                        </h3>
-
-                        <p class="course-text">
-                            Hambúrguer artesanal, queijo derretido,
-                            bacon crocante e molho especial.
-                        </p>
-
-                        <div class="course-info">
-                            <span class="course-level">
-                                Especial do Zé
-                            </span>
-                            <span class="course-lessons">
-                                R$ 27,90
-                            </span>
-                        </div>
-
-                    </article>
-
-
-                    <!-- PRODUTO 3 -->
-                    <article class="course-card">
-
-                        <div class="course-icon icon-green">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">tapas</span>
-                        </div>
-
-                        <h3 class="course-title">
-                            Batata Frita
-                        </h3>
-
-                        <p class="course-text">
-                            Batatas crocantes por fora e macias
-                            por dentro. Uma delícia!
-                        </p>
-
-                        <div class="course-info">
-                            <span class="course-level">
-                                Acompanhamento
-                            </span>
-                            <span class="course-lessons">
-                                R$ 15,00
-                            </span>
-                        </div>
-
-                    </article>
-
-
-                    <!-- PRODUTO 4 -->
-                    <article class="course-card">
-
-                        <div class="course-icon icon-blue">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">local_pizza</span>
-                        </div>
-
-                        <h3 class="course-title">
-                            Pizza Especial
-                        </h3>
-
-                        <p class="course-text">
-                            Massa saborosa, muito queijo e
-                            ingredientes selecionados.
-                        </p>
-
-                        <div class="course-info">
-                            <span class="course-level">
-                                Favorito
-                            </span>
-                            <span class="course-lessons">
-                                R$ 39,90
-                            </span>
-                        </div>
-
-                    </article>
-
-
-                    <!-- PRODUTO 5 -->
-                    <article class="course-card">
-
-                        <div class="course-icon icon-purple">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">local_cafe</span>
-                        </div>
-
-                        <h3 class="course-title">
-                            Milk-shake
-                        </h3>
-
-                        <p class="course-text">
-                            Milk-shake cremoso e geladinho,
-                            perfeito para acompanhar seu lanche.
-                        </p>
-
-                        <div class="course-info">
-                            <span class="course-level">
-                                Bebida especial
-                            </span>
-                            <span class="course-lessons">
-                                R$ 14,90
-                            </span>
-                        </div>
-
-                    </article>
-
-
-                    <!-- PRODUTO 6 -->
-                    <article class="course-card">
-
-                        <div class="course-icon icon-orange">
-                            <span class="material-symbols-outlined"
-                                aria-hidden="true">local_drink</span>
-                        </div>
-
-                        <h3 class="course-title">
-                            Refrigerante
-                        </h3>
-
-                        <p class="course-text">
-                            Bebida gelada para deixar seu pedido
-                            ainda mais completo.
-                        </p>
-
-                        <div class="course-info">
-                            <span class="course-level">
-                                Bebida
-                            </span>
-                            <span class="course-lessons">
-                                R$ 7,00
-                            </span>
-                        </div>
-
-                    </article>
-
+            <!-- Coluna 4: redes sociais
+                 Ícones do Font Awesome. Funciona igual ao Material Symbols,
+                 mas aqui o ícone é escolhido pela CLASSE:
+                   fa-brands  = coleção de marcas
+                   fa-github  = qual ícone mostrar -->
+            <div class="footer-column">
+                <h4>Redes sociais</h4>
+                <div class="social-links">
+                    <!-- target="_blank" abre o link em uma NOVA aba
+                         aria-label descreve o link para leitores de tela -->
+                    <a href="https://github.com" target="_blank" aria-label="GitHub">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        <!-- <i> é a tag que o Font Awesome usa para ícones -->
+                    </a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://discord.com" target="_blank" aria-label="Discord">
+                        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+                    </a>
                 </div>
-
-
-                <!-- Botões do carrossel -->
-                <button class="carousel-btn carousel-prev"
-                    id="btn-prev"
-                    aria-label="Produtos anteriores">
-
-                    <span class="material-symbols-outlined"
-                        aria-hidden="true">chevron_left</span>
-
-                </button>
-
-                <button class="carousel-btn carousel-next"
-                    id="btn-next"
-                    aria-label="Próximos produtos">
-
-                    <span class="material-symbols-outlined"
-                        aria-hidden="true">chevron_right</span>
-
-                </button>
-
             </div>
         </div>
-    </section>
 
+        <p class="footer-copy">
+            &copy; <span id="ano"></span> Zé Fominha. Todos os direitos reservados.
+            <!-- &copy; vira o símbolo © | o ano é preenchido pelo JavaScript -->
+        </p>
+    </footer>
 
-    <!-- ================= POR QUE PEDIR AQUI ================= -->
-    <section class="why" id="por-que">
+    <!-- 1º) Biblioteca do Supabase (baixada da internet pelo CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        <div class="container">
+    <!-- 2º) Nossa conexão com o projeto no Supabase -->
+    <script src="js/supabase-config.js"></script>
 
-            <h2 class="section-title">
-                Por que escolher o Zé Fominha?
-            </h2>
-
-            <div class="why-grid">
-
-                <div class="why-item">
-
-                    <span class="material-symbols-outlined why-icon"
-                        aria-hidden="true">delivery_dining</span>
-
-                    <div>
-                        <h3>Entrega rápida</h3>
-                        <p>
-                            Seu pedido chega até você com praticidade
-                            e todo cuidado.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="why-item">
-
-                    <span class="material-symbols-outlined why-icon why-icon-green"
-                        aria-hidden="true">restaurant</span>
-
-                    <div>
-                        <h3>Ingredientes de qualidade</h3>
-                        <p>
-                            Produtos selecionados para proporcionar
-                            uma experiência deliciosa.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="why-item">
-
-                    <span class="material-symbols-outlined why-icon"
-                        aria-hidden="true">favorite</span>
-
-                    <div>
-                        <h3>Feito com carinho</h3>
-                        <p>
-                            Cada pedido preparado pensando
-                            na sua satisfação.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="why-item">
-
-                    <span class="material-symbols-outlined why-icon why-icon-green"
-                        aria-hidden="true">shopping_bag</span>
-
-                    <div>
-                        <h3>Pedido fácil</h3>
-                        <p>
-                            Escolha seus produtos e faça seu pedido
-                            de maneira simples e rápida.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ================= CHAMADA FINAL ================= -->
-    <section class="cta">
-
-        <div class="container">
-
-            <h2>
-                A fome não espera!
-            </h2>
-
-            <p>
-                Não fique só na vontade. Peça agora no Zé Fominha!
-            </p>
-
-            <a href="./cardapio.html" class="btn-hero">
-                Quero pedir agora
-                <span class="material-symbols-outlined"
-                    aria-hidden="true">arrow_forward</span>
-            </a>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-
-    <div class="container footer-container">
-
-        <!-- LOGO -->
-        <div class="footer-brand">
-
-            <a href="index.html" class="logo">
-
-                <img src="./Assets/10154ccf-c654-463b-83f0-b17955331cc9.jpg"
-                    alt="Logo Zé Fominha">
-
-                <span class="logo-text">
-
-                    <span class="logo-title">
-                        Zé Fominha
-                    </span>
-
-                    <span class="logo-subtitle">
-                        Matando sua fome!
-                    </span>
-
-                </span>
-
-            </a>
-
-        </div>
-
-
-        <!-- NAVEGAÇÃO -->
-        <div class="footer-column">
-
-            <h4>Navegação</h4>
-
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="./cardapio.html">Cardápio</a></li>
-                <li><a href="#destaques">Mais pedidos</a></li>
-                <li><a href="#por-que">Sobre nós</a></li>
-            </ul>
-
-        </div>
-
-
-        <!-- LINKS ÚTEIS -->
-        <div class="footer-column">
-
-            <h4>Atendimento</h4>
-
-            <ul>
-                <li><a href="./cardapio.html">Fazer pedido</a></li>
-                <li><a href="#">Horários de funcionamento</a></li>
-                <li><a href="#">Área de entrega</a></li>
-                <li><a href="#">Formas de pagamento</a></li>
-            </ul>
-
-        </div>
-
-
-        <!-- REDES SOCIAIS -->
-        <div class="footer-column">
-
-            <h4>Redes sociais</h4>
-
-            <div class="social-links">
-
-                <a href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Instagram">
-
-                    <i class="fa-brands fa-instagram"
-                        aria-hidden="true"></i>
-
-                </a>
-
-                <a href="https://facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook">
-
-                    <i class="fa-brands fa-facebook"
-                        aria-hidden="true"></i>
-
-                </a>
-
-                <a href="https://wa.me/5500000000000"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="WhatsApp">
-
-                    <i class="fa-brands fa-whatsapp"
-                        aria-hidden="true"></i>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- COPYRIGHT -->
-    <p class="footer-copy">
-
-        &copy; <span id="ano"></span>
-        Zé Fominha. Todos os direitos reservados.
-
-    </p>
-
-</footer>
-
-
-<script src="./js/script.js"></script>
-
+    <!-- 3º) Nosso script (precisa vir POR ÚLTIMO, pois usa os dois de cima) -->
+    <script src="js/script.js"></script>
 </body>
 </html>

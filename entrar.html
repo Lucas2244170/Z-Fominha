@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- Declara que este documento usa HTML5 -->
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar | Zé Fominha</title>
+    <!-- Cada página tem um título diferente na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Conecta o arquivo de estilos (CSS). Todas as páginas usam o MESMO style.css -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Importando fonte do Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+    <!-- Ícones Material Symbols (Google Fonts) -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome: ícones das redes sociais no rodapé -->
+</head>
+<body class="auth-page">
+    <!-- A classe "auth-page" muda o fundo apenas nesta página.
+         "auth" vem de "authentication" (autenticação = entrar na conta). -->
+
+    <!-- Esta página NÃO tem o header e o footer completos.
+         É comum que telas de login sejam mais "limpas",
+         para o usuário focar só no formulário. -->
+
+    <div class="auth-wrapper">
+        <!-- auth-wrapper divide a tela em DUAS colunas -->
+
+        <!-- LADO ESQUERDO: painel colorido com a logo e as vantagens.
+             No celular ele some (veja o CSS), para sobrar espaço para o formulário. -->
+        <aside class="auth-side">
+            <!-- aside: conteúdo "de apoio", que complementa o principal -->
+
+            <a href="index.html" class="logo">
+                <img src="./assets/logo zé forminha.jpg" alt="Logo Zé Fominha">
+                <span class="logo-text">
+                    <span class="logo-title">Zé Fominha</span>
+                    <span class="logo-subtitle">Sabor que mata a fome</span>
+                </span>
+            </a>
+
+            <div>
+                <h2 class="auth-side-title">O sabor que você gosta, entregue rapidinho</h2>
+
+                <ul class="auth-benefits">
+                    <li>
+                        <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                        Pedidos feitos em poucos passos
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                        Atendimento rápido e simpático
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                        Entrega acompanhada até você
+                    </li>
+                </ul>
+            </div>
+
+            <small class="auth-side-footer">&copy; Zé Fominha</small>
+        </aside>
+
+        <!-- LADO DIREITO: o formulário de login -->
+        <main class="auth-main">
+
+            <a href="index.html" class="auth-back">
+                <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_back</span>
+                Voltar para o início
+            </a>
+
+            <div class="auth-card">
+                <h1 class="auth-title">Bem-vindo de volta!</h1>
+                <p class="auth-subtitle">Entre na sua conta para acompanhar seus pedidos.</p>
+
+                <!-- novalidate NÃO foi usado: deixamos o navegador conferir
+                     os campos "required" e o formato do e-mail.
+                     Depois, o JavaScript faz as verificações extras. -->
+                <form id="form-login">
+
+                    <div class="form-group">
+                        <label for="login-email">E-mail</label>
+                        <input type="email" id="login-email" class="form-control" placeholder="seuemail@exemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-senha">Senha</label>
+
+                        <!-- password-box: caixa que junta o campo de senha e o botão do "olho" -->
+                        <div class="password-box">
+                            <input type="password" id="login-senha" class="form-control" placeholder="Digite sua senha" required>
+                            <!-- type="password": esconde o que é digitado (aparecem bolinhas) -->
+
+                            <!-- Botão para mostrar/esconder a senha.
+                                 type="button": NÃO envia o formulário ao clicar.
+                                 data-alvo: diz ao JavaScript QUAL campo ele controla (o id do input). -->
+                            <button type="button" class="toggle-senha" data-alvo="login-senha" aria-label="Mostrar senha">
+                                <span class="material-symbols-outlined" aria-hidden="true">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Linha com "Lembrar de mim" e "Esqueci minha senha" -->
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="lembrar">
+                            Lembrar de mim
+                        </label>
+                        <a href="#" class="form-link">Esqueci minha senha</a>
+                    </div>
+
+                    <button type="submit" class="btn-form">Entrar</button>
+
+                    <!-- Aqui o JavaScript vai mostrar a mensagem de sucesso ou erro -->
+                    <p class="form-message" id="msg-login"></p>
+                </form>
+
+                <p class="auth-switch">
+                    Ainda não tem conta?
+                    <a href="cadastro.html" class="form-link">Cadastre-se grátis</a>
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <!-- 1º) Biblioteca do Supabase (baixada da internet pelo CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2º) Nossa conexão com o projeto no Supabase -->
+    <script src="js/supabase-config.js"></script>
+
+    <!-- 3º) Nosso script (precisa vir POR ÚLTIMO, pois usa os dois de cima) -->
+    <script src="js/script.js"></script>
+</body>
+</html>

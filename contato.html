@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!-- Declara que este documento usa HTML5 -->
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Zé Fominha</title>
+    <!-- Cada página tem um título diferente na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Conecta o arquivo de estilos (CSS). Todas as páginas usam o MESMO style.css -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Importando fonte do Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+    <!-- Ícones Material Symbols (Google Fonts) -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome: ícones das redes sociais no rodapé -->
+</head>
+<body>
+
+    <header class="header">
+        <!-- Cabeçalho igual ao da página inicial.
+             Ele se repete em todas as páginas para o menu ficar sempre no mesmo lugar. -->
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <!-- Logo clicável, leva para a página inicial -->
+                <img src="./assets/logo zé forminha.jpg" alt="Logo Zé Fominha">
+                <span class="logo-text">
+                    <span class="logo-title">Zé Fominha</span>
+                    <span class="logo-subtitle">Sabor que mata a fome</span>
+                </span>
+            </a>
+
+            <nav class="main-nav">
+                <!-- A classe "active" fica no link da página em que estamos -->
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="cardapio.html" class="nav-link">Cardápio</a>
+                <a href="sobre.html" class="nav-link">Sobre nós</a>
+                <a href="contato.html" class="nav-link active">Contato</a>
+
+                <!-- Link que só aparece no menu do CELULAR
+                     (no celular, o botão "Começar agora" fica escondido) -->
+                <a href="entrar.html" class="nav-link nav-link-mobile">Entrar / Cadastrar</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Buscar no cardápio...">
+                    <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+                </div>
+
+                <!-- PASSO 6: saudação ao aluno logado. Começa escondida (hidden);
+                     o JavaScript escreve "Olá, Nome!" e mostra quando há alguém logado -->
+                <span class="user-greeting" id="saudacao" hidden></span>
+
+                <a href="cardapio.html" class="btn-primary">Fazer pedido</a>
+                <!-- Agora é um link <a> com aparência de botão: ao clicar, abre a página de login -->
+            </div>
+
+            <!-- Botão do menu hamburguer (funciona apenas para mobile) -->
+            <button class="hamburguer" id="btn-menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ---------------- TOPO DA PÁGINA ---------------- -->
+        <section class="page-hero">
+            <div class="container">
+                <span class="page-tag">Contato</span>
+                <h1 class="page-title">Fale com o Zé Fominha</h1>
+                <p class="page-text">
+                    Tem dúvida sobre seu pedido, entrega ou cardápio?
+                    Mande uma mensagem e nossa equipe responde rápido.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- ---------------- INFORMAÇÕES + FORMULÁRIO ---------------- -->
+        <section class="contact">
+            <div class="container contact-container">
+
+                <!-- Lado esquerdo: formas de contato -->
+                <div class="contact-info">
+                    <h2 class="section-title">Canais de atendimento</h2>
+                    <p>Você também pode falar com a nossa equipe por estes canais:</p>
+
+                    <div class="contact-item">
+                        <div class="course-icon icon-purple">
+                            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+                        </div>
+                        <div>
+                            <h3>E-mail</h3>
+                            <!-- E-mail fictício, apenas de exemplo -->
+                            <p>contato@zefominha.com.br</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="course-icon icon-green">
+                            <span class="material-symbols-outlined" aria-hidden="true">schedule</span>
+                        </div>
+                        <div>
+                            <h3>Horário de atendimento</h3>
+                            <p>Todos os dias, das 11h às 23h</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="course-icon icon-blue">
+                            <span class="material-symbols-outlined" aria-hidden="true">forum</span>
+                        </div>
+                        <div>
+                            <h3>WhatsApp</h3>
+                            <p>Tire suas dúvidas pelo WhatsApp ou redes sociais</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lado direito: FORMULÁRIO
+                     form: agrupa os campos que o usuário vai preencher.
+                     O id="form-contato" é usado pelo JavaScript. -->
+                <form class="form-card" id="form-contato">
+
+                    <!-- form-grid: deixa Nome e E-mail lado a lado -->
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <!-- label: o nome do campo.
+                                 O "for" deve ser IGUAL ao "id" do input.
+                                 Assim, clicar no texto já coloca o cursor no campo. -->
+                            <label for="contato-nome">Nome</label>
+                            <input type="text" id="contato-nome" class="form-control" placeholder="Seu nome" required>
+                            <!-- required: o navegador não deixa enviar com o campo vazio -->
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contato-email">E-mail</label>
+                            <input type="email" id="contato-email" class="form-control" placeholder="seuemail@exemplo.com" required>
+                            <!-- type="email": o navegador confere se tem cara de e-mail (com @) -->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contato-assunto">Assunto</label>
+                        <!-- select: caixa de opções. Cada option é uma escolha. -->
+                        <select id="contato-assunto" class="form-control" required>
+                            <option value="">Selecione um assunto</option>
+                            <option value="pedido">Dúvida sobre pedido</option>
+                            <option value="entrega">Prazo ou entrega</option>
+                            <option value="cardapio">Produto ou cardápio</option>
+                            <option value="sugestao">Sugestão</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contato-mensagem">Mensagem</label>
+                        <!-- textarea: campo de texto com várias linhas -->
+                        <textarea id="contato-mensagem" class="form-control" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-form">
+                        <!-- type="submit": este botão ENVIA o formulário -->
+                        Enviar mensagem
+                        <span class="material-symbols-outlined icon-sm" aria-hidden="true">send</span>
+                    </button>
+
+                    <!-- Espaço vazio onde o JavaScript vai escrever a mensagem de sucesso ou erro -->
+                    <p class="form-message" id="msg-contato"></p>
+                </form>
+            </div>
+        </section>
+
+
+        <!-- ---------------- PERGUNTAS FREQUENTES ----------------
+             <details> e <summary> são tags do HTML que já abrem e
+             fecham sozinhas ao clicar. Não precisa de JavaScript!
+             summary = a pergunta (sempre visível)
+             o resto   = a resposta (aparece ao clicar) -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <h2 class="section-title">Perguntas frequentes</h2>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Qual o prazo de entrega?</summary>
+                        <p>O tempo médio é de 45 minutos e pode variar conforme o bairro e o volume de pedidos.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Posso alterar meu pedido?</summary>
+                        <p>Alterações são possíveis durante o preparo. Entre em contato o quanto antes informando o número do pedido.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Vocês entregam em quais bairros?</summary>
+                        <p>Atendemos diversos bairros da região. Consulte a disponibilidade no momento do pedido.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Quais formas de pagamento?</summary>
+                        <p>A aceitamos dinheiro, cartão na entrega e pagamentos digitais, conforme disponibilidade.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ---------------- FOOTER (rodapé) ----------------
+         Mesmo rodapé da página inicial. -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <!-- Coluna 1: logo -->
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="./assets/logo zé forminha.jpg" alt="Logo Zé Fominha">
+                    <span class="logo-text">
+                        <span class="logo-title">Zé Fominha</span>
+                        <span class="logo-subtitle">Sabor que mata a fome</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Coluna 2: navegação -->
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cardapio.html">Cardápio</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: links úteis -->
+            <div class="footer-column">
+                <h4>Links úteis</h4>
+                <ul>
+                    <li><a href="index.html#por-que">Como funciona</a></li>
+                    <!-- index.html#por-que = abre a página inicial já na seção id="por-que" -->
+                    <li><a href="contato.html#faq">Perguntas frequentes</a></li>
+                    <li><a href="#">Política de privacidade</a></li>
+                    <li><a href="#">Termos de uso</a></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 4: redes sociais (ícones do Font Awesome) -->
+            <div class="footer-column">
+                <h4>Redes sociais</h4>
+                <div class="social-links">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://discord.com" target="_blank" aria-label="Discord">
+                        <i class="fa-brands fa-discord" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-copy">
+            &copy; <span id="ano"></span> Zé Fominha. Todos os direitos reservados.
+            <!-- o ano é preenchido pelo JavaScript -->
+        </p>
+    </footer>
+
+    <!-- 1º) Biblioteca do Supabase (baixada da internet pelo CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2º) Nossa conexão com o projeto no Supabase -->
+    <script src="js/supabase-config.js"></script>
+
+    <!-- 3º) Nosso script (precisa vir POR ÚLTIMO, pois usa os dois de cima) -->
+    <script src="js/script.js"></script>
+    <!-- Todas as páginas usam o MESMO script.js -->
+</body>
+</html>

@@ -1,29 +1,36 @@
-/* =========================================================
-   ZÉ FOMINHA - CSS COMPLETO
-   Base original preservada + correções complementares
-   ========================================================= */
+/* Variáveis Globais (cores e fontes reutilizadas no CSS) */
 
-/* Variaveis Globais (cores e fontes reutilizadas no CSS) */
 :root {
-    --color-primary: #ff1a1a;
-    --color-primary-dark: #ca3945;
-    --color-text: #000000;
-    --color-text-light: #4e4e4e;
-    --color-border: #E5E7EB;
-    --color-bg: #FFF;
+    --color-primary: #D92027;
+    --color-primary-dark: #A90F15;
+    --color-primary-light: #FFF1F1;
+    --color-gold: #D4A72C;
+    --color-gold-light: #FFF4C7;
+    --color-text: #24191A;
+    --color-text-light: #74666A;
+    --color-border: #E9DCDD;
+    --color-bg: #FFFFFF;
+    --color-success: #2E8B57;
+    --color-bg-soft: #FFF8F7;
+    --color-footer: #5E1014;
     --font-main: 'Inter', sans-serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --radius: 16px;
 }
 
 body {
-    font-family: var(--font-main);
-    background-color: var(--color-bg);
+    background: #FFF;
     color: var(--color-text);
+}
+
+/* Reset básico: remove espaçamentos padrão do navegador */
+* {
+    margin: 0; /* Espaçamento externo */
+    padding: 0; /* Espaçamento interno */
+    box-sizing: border-box; /* padding e border não aumentam o tamanho do elemento */
+}
+
+body {
+    font-family: var(--font-main); /* Tipo da fonte */
 }
 
 /* HEADER */
@@ -31,20 +38,21 @@ body {
 .header {
     width: 100%;
     background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    position: sticky;
+    border-bottom: 1px solid var(--color-border); /* Borda inferior */
+    position: sticky; /* header "gruda" no topo ao rola a página */
     top: 0;
-    z-index: 100;
+    z-index: 100; /* garante que fique acima dos outros elementos */
+    box-shadow: 0 4px 18px rgba(94, 16, 20, 0.06);
 }
 
 .header-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1200px; /* Largura máxima do conteúdo */
+    margin: 0 auto; /* Centraliza na página */
     padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
+    display: flex; /* Organiza os elementos lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Logo, menu e botões ficam nas pontas */
+    gap: 24px; /* Espaço entre os elementos */
 }
 
 /* LOGO */
@@ -52,87 +60,88 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     text-decoration: none;
-    flex-shrink: 0;
 }
 
 .logo img {
-    width: 60px;
-    height: auto;
-    display: block;
-    flex-shrink: 0;
-}
-
-.logo-tittle {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-text);
-}
-
-.Logo-subtitle {
-    font-size: 12px;
-    color: var(--color-text-light);
+    width: 58px;
+    height: 58px;
+    border-radius: 8px;
+    object-fit: contain;
+    object-position: center;
+    background: #FFF;
 }
 
 .logo-text {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Título em cima, subtítulo embaixo*/
 }
 
-/* NAVEGAÇÃO */
+.logo-title {
+    font-size: 16px; 
+    font-weight: 700; /* negrito */
+    color: var(--color-primary);
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-gold);
+}
+
+/* NAVEGAÇÃO (Menu) */
 
 .main-nav {
     display: flex;
-    align-items: center;
-    gap: 32px;
+    align-items: center; /* Centraliza os links verticalmente */
+    gap: 32px; /* Espaço entre os links */
 }
 
 .nav-link {
-    text-decoration: none;
+    text-decoration: none; /* Remove a estilização padrão dos links *
+    */
     font-size: 14px;
     font-weight: 500;
     color: var(--color-text-light);
-    transition: color 0.2s ease;
+    transition: color 0.2s ease; /* Muda a cor suavemente */
 }
 
 .nav-link:hover {
-    color: var(--color-text);
+    color: var(--color-primary); /* Muda de cor ao passar o mouse */
 }
 
 .nav-link.active {
-    color: var(--color-primary);
+    color: var(--color-primary); /* Destaca o link da página atual */
     font-weight: 600;
 }
 
 /* AÇÕES HEADER (Busca + botão) */
-
 .header-actions {
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-/* BUSCA */
-
 .search-box {
-    position: relative;
+    position: relative; /* serve para posicionar o ícone da lupa */
     display: flex;
     align-items: center;
 }
 
 .search-box input {
     font-family: var(--font-main);
-    padding: 10px 40px 10px 16px;
     width: 220px;
+    padding: 10px 40px 10px 16px; /* Espaço extra à direita para caber o icone */
     border: 1px solid var(--color-border);
     border-radius: 8px;
     font-size: 14px;
-    outline: none;
+    outline: none; /* Remove a borda azul pdrão do navegador */
 }
 
 .search-box input:focus {
-    border-color: var(--color-primary);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(212, 167, 44, 0.12);
 }
 
 .search-box input::placeholder {
@@ -140,11 +149,11 @@ body {
 }
 
 .search-icon {
-    position: absolute;
+    position: absolute; /* Posiciona o ícone sobre o input */
     right: 14px;
-    pointer-events: none;
-    width: 20px;
-    height: auto;
+    fill: var(--color-text-light); /* Cor do ícone SVG */
+    pointer-events: none; /* Impede o ícone de atrapalhar o clique no input */
+    width: 25px; /* Tamanho do ícone de pesquisa */
 }
 
 .btn-primary {
@@ -156,15 +165,16 @@ body {
     border-radius: 8px;
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background-color 0.2s ease;
+    cursor: pointer; /* Mostra que é clicável */
+    white-space: nowrap; /* Impede o texto do botão de quebrar linha */
+    border-radius: 999px;
 }
 
 .btn-primary:hover {
     background-color: var(--color-primary-dark);
 }
 
+/* Oculta o menu hamburguer para telas desktop */
 .hamburguer {
     display: none;
     font-size: 24px;
@@ -174,38 +184,8 @@ body {
     color: var(--color-text);
 }
 
-/* TÍTULO PRINCIPAL */
-
-h1 {
-    font-size: 30px;
-    font-weight: 700;
-    margin: 20px 0;
-    color: var(--color-text);
-    text-align: center;
-}
-
-/* IMAGEM DO CARDÁPIO */
-
-.imagem-cardapio {
-    width: 500px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 20px auto;
-}
-
 /* Telas pequenas (celulares) */
-
 @media (max-width: 768px) {
-    .header-container {
-        gap: 12px;
-        padding: 16px;
-    }
-
-    .logo img {
-        width: 50px;
-    }
-
     .search-box {
         display: none;
     }
@@ -213,7 +193,8 @@ h1 {
     .main-nav {
         display: none;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-end;
+
         position: absolute;
         top: 100%;
         left: 0;
@@ -224,122 +205,58 @@ h1 {
         gap: 16px;
     }
 
-    .main-nav.active {
+    /* Classe que o JavaScript liga/desliga */
+    .main-nav.ativo {
         display: flex;
     }
 
     .btn-primary {
-        display: flex;
-        padding: 10px 12px;
-        font-size: 12px;
+        display: none;
     }
 
     .hamburguer {
         display: flex;
-        align-items: center;
-        justify-content: center;
     }
+
+
 }
 
-/* Modo escuro */
-
-body.escuro {
-    background-color: #121212;
-    color: #f5f5f5;
-}
-
-body.escuro .header {
-    background-color: #1e1e1e;
-    border-bottom-color: #444;
-}
-
-body.escuro h1,
-body.escuro .logo-tittle {
-    color: #f5f5f5;
-}
-
-body.escuro .Logo-subtitle {
-    color: #cccccc;
-}
-
-body.escuro .nav-link {
-    color: #dddddd;
-}
-
-body.escuro .nav-link.active {
-    color: #ff1a1a;
-}
-
-body.escuro .search-box input {
-    background-color: #2b2b2b;
-    color: #ffffff;
-    border-color: #555;
-}
-
-body.escuro .main-nav {
-    background-color: #1e1e1e;
-    border-bottom-color: #444;
-}
 
 /* =========================================================
-   ZÉ FOMINHA - ESTILOS GERAIS
+   =========================================================
+   CONTINUAÇÃO DO PROJETO
+   Tudo daqui para baixo é novo. O código acima não mudou.
+   =========================================================
    ========================================================= */
 
-/* Variáveis globais */
 
+/* Novas variáveis
+   Podemos ter mais de um :root. As variáveis abaixo se
+   SOMAM às que já existiam lá no começo do arquivo. */
 :root {
-    --color-primary: #FFC107;
-    --color-primary-dark: #E0A800;
-    --color-primary-light: #FFF3CD;
-
-    --color-secondary: #E63924;
-    --color-secondary-dark: #C92D1B;
-
-    --color-success: #198754;
-
-    --color-text: #202020;
-    --color-text-light: #777777;
-
-    --color-bg: #FFFFFF;
-    --color-bg-soft: #FFF9EC;
-
-    --color-border: #EEEEEE;
-    --color-footer: #171717;
-
-    --radius: 14px;
-    --font-main: 'Inter', sans-serif;
+    --color-primary-light: #FFF1F1;
+    --color-success: #2E8B57;
+    --color-bg-soft: #FFF8F7;
+    --color-footer: #5E1014;
+    --radius: 16px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    color: var(--color-text);
+    line-height: 1.5; /* altura da linha: 1.5x a fonte (melhora a leitura) */
 }
 
+/* Rolagem suave ao clicar em links internos (#por-que) */
 html {
     scroll-behavior: smooth;
 }
 
-body {
-    font-family: var(--font-main);
-    color: var(--color-text);
-    line-height: 1.5;
-    background-color: var(--color-bg);
-}
-
+/* Remove as bolinhas padrão das listas */
 ul {
     list-style: none;
 }
 
-a {
-    text-decoration: none;
-}
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
+/* Classe reutilizável: centraliza o conteúdo (igual ao header-container) */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -347,188 +264,56 @@ img {
 }
 
 .section-title {
-    font-size: 26px;
-    font-weight: 800;
-}
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.header {
-    width: 100%;
-    background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}
-
-/* LOGO (usada no header e no footer) */
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-.logo img {
-    width: 60px;
-    height: auto;
-    display: block;
-    flex-shrink: 0;
-}
-
-.logo-text {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--color-text);
-}
-
-.logo-subtitle {
-    font-size: 12px;
-    color: var(--color-text-light);
-}
-
-/* NAVEGAÇÃO */
-
-.main-nav {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-.nav-link {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-text-light);
-    transition: color 0.2s ease;
-}
-
-.nav-link:hover {
-    color: var(--color-text);
-}
-
-.nav-link.active {
-    color: var(--color-secondary);
-    font-weight: 600;
-}
-
-/* AÇÕES (busca + botões) */
-
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.search-box {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-.search-box input {
-    font-family: var(--font-main);
-    padding: 10px 40px 10px 16px;
-    width: 220px;
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-}
-
-.search-box input:focus {
-    border-color: var(--color-secondary);
-}
-
-.search-box input::placeholder {
-    color: var(--color-text-light);
-}
-
-.search-icon {
-    position: absolute;
-    right: 14px;
-    pointer-events: none;
-    width: 20px;
-    height: auto;
-}
-
-.btn-primary {
-    font-family: var(--font-main);
-    background-color: var(--color-secondary);
-    color: #FFFFFF;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: background-color 0.2s ease;
-}
-
-.btn-primary:hover {
-    background-color: var(--color-secondary-dark);
-}
-
-.hamburguer {
-    display: none;
     font-size: 24px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--color-text);
+    font-weight: 700;
 }
 
-/* =========================================================
-   ÍCONES - MATERIAL SYMBOLS
-   ========================================================= */
 
+/* =========================================================
+   ÍCONES (Material Symbols)
+   O ícone é uma FONTE: por isso usamos font-size para o
+   tamanho e color para a cor, igual a um texto comum.
+   ========================================================= */
 .material-symbols-outlined {
-    font-size: 24px;
-    line-height: 1;
-    flex-shrink: 0;
+    font-size: 24px;     /* tamanho padrão dos ícones */
+    line-height: 1;      /* evita espaço extra acima/abaixo do ícone */
+    flex-shrink: 0;      /* o ícone nunca é "espremido" */
 
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
+    /* font-variation-settings ajusta o estilo do ícone:
+       'FILL' 0 = só contorno (1 = preenchido)
+       'wght' 400 = espessura da linha (de 100 a 700)
+       'GRAD' 0 = ajuste fino da espessura
+       'opsz' 24 = tamanho óptico (desenho otimizado para 24px) */
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-.material-symbols-outlined.icon-sm {
+/* Lupa do campo de pesquisa.
+   O CSS original (.search-icon) já posiciona o ícone dentro do input;
+   aqui só ajustamos o tamanho e a cor do novo ícone. */
+.material-symbols-outlined.search-icon {
     font-size: 20px;
+    width: auto;
+    color: var(--color-text-light);
 }
 
-.material-symbols-outlined.icon-xs {
-    font-size: 18px;
-}
+/* Tamanhos menores (usamos junto: class="material-symbols-outlined icon-sm")
+
+   ATENÇÃO: o CSS do Google é carregado DEPOIS do style.css e
+   também define font-size: 24px. Quando duas regras têm o mesmo
+   "peso", a que vem por último vence. Por isso escrevemos as DUAS
+   classes juntas (sem espaço): isso deixa a nossa regra mais
+   "forte" (maior especificidade) e ela vence a do Google. */
+.material-symbols-outlined.icon-sm { font-size: 20px; }
+.material-symbols-outlined.icon-xs { font-size: 18px; }
+
 
 /* =========================================================
    HERO
    ========================================================= */
-
 .hero {
-    background: linear-gradient(135deg, #FFF4D6 0%, #FFFFFF 100%);
-    padding: 72px 0;
-    overflow: hidden;
+    /* linear-gradient: degradê de uma cor para outra (de cima para baixo) */
+    background: linear-gradient(180deg, var(--color-bg-soft) 0%, #FFF 100%);
+    padding: 64px 0;
 }
 
 .hero-container {
@@ -538,101 +323,92 @@ img {
     gap: 48px;
 }
 
-.hero-content {
-    flex: 1.2;
-}
-
-.hero-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
+/* flex: cada lado ocupa uma fração do espaço (texto um pouco maior) */
+.hero-content { flex: 1.2; }
+.hero-image   { flex: 1; }
 
 .hero-image img {
+    max-width: 100%; /* a imagem nunca passa do espaço disponível */
+    max-height: 360px;
     width: 100%;
-    max-width: 520px;
-    border-radius: 20px;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
 }
 
 .hero-title {
-    font-size: 48px;
-    font-weight: 900;
-    line-height: 1.15;
-    margin-bottom: 20px;
-    color: #171717;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
 }
 
 .text-highlight {
-    display: block;
-    color: var(--color-secondary);
+    display: block; /* faz o span ir para a linha de baixo */
+    color: var(--color-gold);
 }
 
 .hero-text {
     font-size: 17px;
-    color: #555555;
+    color: #374151;
     margin-bottom: 32px;
-    max-width: 520px;
+    max-width: 520px; /* linhas muito longas cansam a leitura */
 }
 
 .hero-buttons {
     display: flex;
     gap: 16px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* se não couber, os botões descem de linha */
     margin-bottom: 40px;
 }
 
-/* BOTÕES DO HERO / CTA */
-
+/* Botões do hero.
+   Usamos classes NOVAS (e não .btn-primary) porque, no celular,
+   o CSS lá de cima esconde todo .btn-primary. */
 .btn-hero,
 .btn-hero-outline {
-    display: inline-flex;
+    display: inline-flex;  /* deixa o texto e o ícone lado a lado */
     align-items: center;
-    justify-content: center;
-    gap: 10px;
-
+    gap: 8px;
     font-size: 15px;
-    font-weight: 800;
-
-    padding: 14px 26px;
-    border-radius: 10px;
-    border: 2px solid transparent;
-
-    transition: all 0.25s ease;
-    cursor: pointer;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 2px solid var(--color-primary);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
 }
 
 .btn-hero {
-    background-color: var(--color-secondary);
-    color: #FFFFFF;
+    background-color: var(--color-primary);
+    color: #FFF;
 }
 
 .btn-hero:hover {
-    background-color: var(--color-secondary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(230, 57, 36, 0.2);
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
 }
 
+/* Faz a seta "andar" um pouquinho ao passar o mouse */
 .btn-hero .material-symbols-outlined {
     transition: transform 0.2s ease;
 }
 
 .btn-hero:hover .material-symbols-outlined {
-    transform: translateX(4px);
+    transform: translateX(4px); /* move 4px para a direita */
 }
 
 .btn-hero-outline {
     background-color: transparent;
-    border-color: var(--color-primary-dark);
-    color: #222222;
+    color: var(--color-primary);
 }
 
 .btn-hero-outline:hover {
     background-color: var(--color-primary-light);
 }
 
-/* VANTAGENS */
-
+/* Lista de vantagens */
 .hero-features {
     display: flex;
     gap: 24px;
@@ -646,9 +422,8 @@ img {
 }
 
 .hero-feature strong {
-    display: block;
+    display: block; /* strong e small, um embaixo do outro */
     font-size: 14px;
-    font-weight: 800;
 }
 
 .hero-feature small {
@@ -656,353 +431,270 @@ img {
     color: var(--color-text-light);
 }
 
+/* Círculo colorido com o ícone dentro */
 .feature-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-
-    background-color: var(--color-secondary);
-    color: #FFFFFF;
-
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;               /* 50% = círculo */
+    background-color: var(--color-primary);
+    color: #FFF;                      /* ícone branco: a cor do ícone vem do "color" */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: center;              /* centraliza na vertical */
+    justify-content: center;          /* centraliza na horizontal */
     flex-shrink: 0;
 }
 
 .feature-icon .material-symbols-outlined {
-    font-size: 23px;
+    font-size: 22px;
 }
 
 .feature-icon-green {
-    background-color: var(--color-success);
+    background-color: var(--color-gold) !important;
+    color: #3D2A00 !important;
 }
 
-/* =========================================================
-   DESTAQUES DO CARDÁPIO
-   ========================================================= */
 
+/* =========================================================
+   CURSOS EM DESTAQUE
+   ========================================================= */
 .courses {
-    padding: 64px 0;
-    background-color: #FFFFFF;
+    padding: 56px 0;
 }
 
 .section-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 28px;
-}
-
-.section-header .section-title {
-    color: #171717;
+    margin-bottom: 24px;
 }
 
 .link-arrow {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-
-    color: var(--color-secondary);
+    color: var(--color-primary);
     font-size: 14px;
-    font-weight: 800;
-
-    transition: color 0.2s ease;
+    font-weight: 600;
+    text-decoration: none;
 }
 
 .link-arrow:hover {
-    color: var(--color-secondary-dark);
     text-decoration: underline;
 }
 
-/* CARROSSEL */
-
+/* Referência para posicionar o botão de seta */
 .carousel {
     position: relative;
 }
 
+/* Lista que rola para o lado */
 .course-list {
     display: flex;
-    gap: 20px;
-
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-
-    padding: 8px 4px 20px;
-    scrollbar-width: none;
+    gap: 16px;
+    overflow-x: auto;               /* permite rolar na horizontal */
+    scroll-snap-type: x mandatory;  /* os cards "encaixam" ao rolar */
+    padding: 6px 4px 16px;          /* espaço para a sombra não ser cortada */
+    scrollbar-width: none;          /* esconde a barra de rolagem (Firefox) */
 }
 
 .course-list::-webkit-scrollbar {
-    display: none;
+    display: none;                  /* esconde a barra (Chrome, Edge, Safari) */
 }
-
-/* CARDS */
 
 .course-card {
-    flex: 0 0 270px;
+    flex: 0 0 270px;                /* largura fixa de 270px */
     scroll-snap-align: start;
-
-    background-color: #FFFFFF;
-    border: 1px solid #EEEEEE;
-    border-radius: 16px;
-    padding: 22px;
-
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    flex-direction: column;         /* conteúdo empilhado */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Card "sobe" e ganha sombra ao passar o mouse */
 .course-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
+/* Quadrado colorido com o ícone do curso */
 .course-icon {
-    width: 54px;
-    height: 54px;
-    border-radius: 12px;
-
+    width: 58px;
+    height: 58px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    color: #FFFFFF;
-    margin-bottom: 18px;
+    color: #FFF;                    /* ícone branco */
+    margin-bottom: 16px;
 }
 
 .course-icon .material-symbols-outlined {
-    font-size: 30px;
+    font-size: 28px;
 }
 
-.icon-blue {
-    background-color: #2563EB;
-}
-
-.icon-orange {
-    background-color: var(--color-secondary);
-}
-
-.icon-yellow {
-    background-color: var(--color-primary);
-    color: #202020;
-}
-
-.icon-green {
-    background-color: var(--color-success);
-}
-
-.icon-purple {
-    background-color: #7542A8;
-}
+/* Uma cor para cada curso */
+.icon-blue   { background-color: var(--color-primary); }
+.icon-orange { background-color: var(--color-primary); }
+.icon-yellow { background-color: var(--color-gold) !important; color: #3D2A00 !important; } /* ícone escuro no amarelo */
+.icon-green  { background-color: var(--color-success); }
+.icon-purple { background-color: var(--color-primary); }
 
 .course-title {
-    font-size: 18px;
-    font-weight: 800;
-    color: #202020;
+    font-size: 16px;
+    font-weight: 700;
     margin-bottom: 8px;
 }
 
 .course-text {
     font-size: 14px;
-    color: #666666;
+    color: #4B5563;
     margin-bottom: 20px;
-    flex-grow: 1;
+    flex-grow: 1; /* ocupa o espaço que sobra: empurra o rodapé do card para baixo */
 }
 
+/* Rodapé do card: nível à esquerda, aulas à direita */
 .course-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 8px;
     font-size: 13px;
+    color: var(--color-text-light);
+}
+
+.course-level,
+.course-lessons {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .course-level {
-    color: var(--color-success);
-    font-weight: 700;
+    color: var(--color-gold);
+    font-weight: 500;
 }
 
-.course-lessons {
-    color: var(--color-secondary);
-    font-size: 16px;
-    font-weight: 900;
-}
-
-/* BOTÕES DO CARROSSEL */
-
+/* Botão redondo de seta */
 .carousel-btn {
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-
-    width: 46px;
-    height: 46px;
+    transform: translateY(-50%);    /* truque para centralizar na vertical */
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    border: none;
-
-    background-color: var(--color-primary);
-    color: #202020;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-
     cursor: pointer;
-    transition: all 0.2s ease;
-    z-index: 2;
 }
 
 .carousel-btn:hover {
-    background-color: var(--color-secondary);
-    color: #FFFFFF;
+    color: var(--color-primary);
 }
 
-.carousel-prev {
-    left: -20px;
-}
+/* Um botão em cada lado do carrossel */
+.carousel-prev { left: -20px; }
+.carousel-next { right: -20px; }
 
-.carousel-next {
-    right: -20px;
-}
 
 /* =========================================================
-   POR QUE ESCOLHER O ZÉ FOMINHA
+   POR QUE ESTUDAR AQUI
    ========================================================= */
-
 .why {
     background-color: var(--color-bg-soft);
-    padding: 64px 0;
+    padding: 56px 0;
 }
 
 .why .section-title {
-    margin-bottom: 36px;
-    color: #171717;
+    margin-bottom: 32px;
 }
 
+/* GRID: organiza em linhas e colunas.
+   repeat(4, 1fr) = 4 colunas iguais ("fr" = fração do espaço) */
 .why-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
 }
 
 .why-item {
     display: flex;
     gap: 16px;
-    padding: 12px 20px;
-    border-left: 1px solid #E7DFC9;
+    padding: 8px 24px;
+    border-left: 1px solid var(--color-border); /* linha divisória */
 }
 
+/* :first-child = só o PRIMEIRO item (não precisa da linha) */
 .why-item:first-child {
     border-left: none;
     padding-left: 0;
 }
 
-.material-symbols-outlined.why-icon {
+/* Ícones maiores e mais finos nesta seção */
+.material-symbols-outlined.why-icon {   /* duas classes juntas = regra mais forte */
     font-size: 40px;
-    color: var(--color-secondary);
-
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 40;
+    color: var(--color-primary);
+    /* linha um pouco mais fina nos ícones grandes */
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40;
 }
 
 .material-symbols-outlined.why-icon-green {
-    color: var(--color-success);
+    color: var(--color-gold);
 }
 
 .why-item h3 {
     font-size: 15px;
-    font-weight: 800;
     margin-bottom: 8px;
 }
 
 .why-item p {
     font-size: 14px;
-    color: #666666;
+    color: #4B5563;
 }
 
-/* =========================================================
-   CHAMADA FINAL - CTA
-   ========================================================= */
-
-.cta {
-    background: linear-gradient(135deg, #E63924, #B82015);
-    color: #FFFFFF;
-    text-align: center;
-    padding: 64px 24px;
-}
-
-.cta h2 {
-    font-size: 34px;
-    font-weight: 900;
-    margin-bottom: 12px;
-}
-
-.cta p {
-    font-size: 16px;
-    margin-bottom: 28px;
-    color: #FFF1ED;
-}
-
-.cta .btn-hero {
-    background-color: var(--color-primary);
-    color: #202020;
-}
-
-.cta .btn-hero:hover {
-    background-color: #FFD54F;
-}
 
 /* =========================================================
    FOOTER
    ========================================================= */
-
 .footer {
-    background-color: var(--color-footer);
-    color: #FFFFFF;
-    padding-top: 52px;
+    background: linear-gradient(135deg, #5E1014 0%, #8D171D 100%);
+    color: #FFF;
+    padding-top: 48px;
 }
 
 .footer-container {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* 1ª coluna 2x maior */
     gap: 32px;
     padding-bottom: 40px;
 }
 
-.footer .logo-title {
-    color: #FFFFFF;
-}
-
-.footer .logo-subtitle {
-    color: #BBBBBB;
-}
+/* No fundo escuro, os textos do logo ficam claros */
+.footer .logo-title    { color: #FFF; }
+.footer .logo-subtitle { color: #CBD5E1; }
 
 .footer-column h4 {
     font-size: 15px;
-    font-weight: 800;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+    color: var(--color-gold-light);
 }
 
 .footer-column li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .footer-column a {
-    color: #CCCCCC;
+    color: #CBD5E1;
+    text-decoration: none;
     font-size: 14px;
-    transition: color 0.2s ease;
 }
 
 .footer-column a:hover {
-    color: var(--color-primary);
+    color: #FFF;
 }
 
 .social-links {
@@ -1010,279 +702,83 @@ img {
     gap: 12px;
 }
 
+/* Cada rede social dentro de um círculo */
 .social-links a {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-
-    background-color: rgba(255, 255, 255, 0.10);
-
+    background-color: rgba(255, 255, 255, 0.08); /* branco bem transparente */
     display: flex;
     align-items: center;
     justify-content: center;
-
-    transition: all 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 .social-links a:hover {
-    background-color: var(--color-secondary);
-    transform: translateY(-3px);
+    background: var(--color-gold);
 }
 
+/* Ícones do Font Awesome também são FONTE: tamanho com font-size, cor com color */
 .social-links i {
-    font-size: 19px;
-    color: #FFFFFF;
+    font-size: 18px;
+    color: #FFF;
 }
 
 .footer-copy {
     text-align: center;
     font-size: 13px;
-    color: #AAAAAA;
+    color: #CBD5E1;
     padding: 20px 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 
 /* =========================================================
-   MODO ESCURO
+   RESPONSIVIDADE DAS NOVAS SEÇÕES
    ========================================================= */
 
-body.escuro {
-    background-color: #121212;
-    color: #f5f5f5;
-}
-
-body.escuro .header,
-body.escuro .main-nav {
-    background-color: #1e1e1e;
-    border-bottom-color: #444;
-}
-
-body.escuro .logo-title,
-body.escuro .hamburguer {
-    color: #f5f5f5;
-}
-
-body.escuro .logo-subtitle {
-    color: #cccccc;
-}
-
-body.escuro .nav-link {
-    color: #dddddd;
-}
-
-body.escuro .nav-link.active {
-    color: #ff6a55;
-}
-
-body.escuro .search-box input {
-    background-color: #2b2b2b;
-    color: #ffffff;
-    border-color: #555;
-}
-
-body.escuro .hero {
-    background: linear-gradient(135deg, #1e1a10 0%, #121212 100%);
-}
-
-body.escuro .hero-title,
-body.escuro .section-header .section-title,
-body.escuro .why .section-title,
-body.escuro .course-title {
-    color: #f5f5f5;
-}
-
-body.escuro .hero-text,
-body.escuro .course-text,
-body.escuro .why-item p {
-    color: #bbbbbb;
-}
-
-body.escuro .btn-hero-outline {
-    color: #f5f5f5;
-}
-
-body.escuro .courses {
-    background-color: #121212;
-}
-
-body.escuro .course-card {
-    background-color: #1e1e1e;
-    border-color: #333;
-}
-
-body.escuro .why {
-    background-color: #181818;
-}
-
-body.escuro .why-item {
-    border-left-color: #333;
-}
-
-/* =========================================================
-   RESPONSIVIDADE - TABLETS
-   ========================================================= */
-
+/* Tablets (até 992px) */
 @media (max-width: 992px) {
-
-    .hero-title {
-        font-size: 38px;
-    }
-
-    .hero-container {
-        gap: 28px;
-    }
-
-    .hero-features {
-        gap: 16px;
-    }
-
     .why-grid {
-        grid-template-columns: repeat(2, 1fr);
-        row-gap: 28px;
+        grid-template-columns: repeat(2, 1fr); /* 4 colunas viram 2 */
+        row-gap: 32px;
     }
 
-    .why-item:nth-child(3) {
+    .why-item:nth-child(3) {  /* 3º item começa nova linha: sem divisória */
         border-left: none;
         padding-left: 0;
     }
 
     .footer-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-/* =========================================================
-   RESPONSIVIDADE - CELULARES
-   ========================================================= */
-
+/* Celulares (até 768px) */
 @media (max-width: 768px) {
-
-    .container {
-        padding: 0 18px;
-    }
-
-    /* HEADER */
-
-    .header-container {
-        gap: 12px;
-        padding: 16px;
-    }
-
-    .logo img {
-        width: 50px;
-    }
-
-    .search-box {
-        display: none;
-    }
-
-    .main-nav {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--color-bg);
-        border-bottom: 1px solid var(--color-border);
-        padding: 16px 24px;
-        gap: 16px;
-    }
-
-    .main-nav.active {
-        display: flex;
-    }
-
-    .header-actions {
-        gap: 8px;
-    }
-
-    .btn-primary {
-        padding: 10px 12px;
-        font-size: 12px;
-    }
-
-    .hamburguer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* HERO */
-
     .hero {
         padding: 40px 0;
     }
 
     .hero-container {
-        flex-direction: column-reverse;
-        gap: 28px;
-    }
-
-    .hero-content,
-    .hero-image {
-        width: 100%;
-    }
-
-    .hero-image img {
-        max-width: 420px;
+        flex-direction: column-reverse; /* imagem em cima, texto embaixo */
+        gap: 24px;
     }
 
     .hero-title {
-        font-size: 34px;
-    }
-
-    .hero-text {
-        font-size: 15px;
-    }
-
-    .hero-buttons {
-        gap: 10px;
-    }
-
-    .btn-hero,
-    .btn-hero-outline {
-        padding: 12px 18px;
-        font-size: 14px;
-    }
-
-    .hero-feature {
-        flex: 1 1 140px;
-    }
-
-    /* CARDÁPIO */
-
-    .courses {
-        padding: 44px 0;
-    }
-
-    .section-header {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .section-title {
-        font-size: 23px;
-    }
-
-    .course-card {
-        flex-basis: 245px;
+        font-size: 30px;
     }
 
     .carousel-btn {
-        display: none;
+        display: none; /* no celular, arrasta-se com o dedo */
     }
 
-    /* BENEFÍCIOS */
-
-    .why {
-        padding: 44px 0;
+    .course-card {
+        flex-basis: 240px;
     }
 
     .why-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
     }
 
     .why-item {
@@ -1290,528 +786,967 @@ body.escuro .why-item {
         padding: 0;
     }
 
-    /* CHAMADA FINAL */
-
-    .cta {
-        padding: 48px 20px;
-    }
-
-    .cta h2 {
-        font-size: 27px;
-    }
-
-    .cta p {
-        font-size: 14px;
-    }
-
-    /* FOOTER */
-
-    .footer {
-        padding-top: 40px;
-    }
-
     .footer-container {
         grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    body.escuro .main-nav {
-        background-color: #1e1e1e;
     }
 }
 
 /* =========================================================
-   TELAS MUITO PEQUENAS
+   =========================================================
+   PARTE 3 — NOVAS PÁGINAS
+   Cursos, Sobre, Contato, Entrar e Cadastrar.
+   Tudo daqui para baixo é novo. O código acima não mudou.
+
+   DICA: repare que REAPROVEITAMOS muitas classes que já
+   existiam (container, section-title, course-card,
+   course-icon...). Escrever uma classe uma vez e usar em
+   várias páginas economiza código e deixa o site padronizado.
+   ========================================================= 
    ========================================================= */
 
-@media (max-width: 400px) {
-
-    .hero-title {
-        font-size: 29px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .btn-hero,
-    .btn-hero-outline {
-        width: 100%;
-    }
-
-    .hero-feature {
-        flex-basis: 100%;
-    }
-
-    .course-card {
-        flex-basis: 225px;
-    }
-
-    .section-title {
-        font-size: 21px;
-    }
-}
 
 /* =========================================================
-   CORREÇÕES E AJUSTES FINAIS
+   AJUSTES NO HEADER
    ========================================================= */
 
-/* PADRONIZAÇÃO GERAL */
-
-html {
-    width: 100%;
-    overflow-x: hidden;
+/* O "Começar agora" virou um link <a>.
+   Links têm sublinhado por padrão, então tiramos aqui.
+   ATENÇÃO: NÃO colocamos "display" nesta regra! "a.btn-primary" é mais
+   forte que ".btn-primary" e iria vencer o "display: none" que esconde
+   o botão no celular (lá na parte do menu hambúrguer). */
+a.btn-primary {
+    text-decoration: none;
 }
 
-body {
-    min-width: 320px;
-    overflow-x: hidden;
+/* Link "Entrar / Cadastrar" do menu: escondido no computador... */
+.nav-link-mobile {
+    display: none;
 }
 
-button,
-input {
-    font-family: var(--font-main);
+/* ...e visível só no celular, dentro do menu hambúrguer */
+@media (max-width: 768px) {
+    .main-nav .nav-link-mobile {
+        display: block;
+        color: var(--color-primary);
+        font-weight: 600;
+    }
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-    outline: 2px solid var(--color-secondary);
-    outline-offset: 3px;
+
+/* =========================================================
+   TOPO DAS PÁGINAS INTERNAS (page-hero)
+   Usado em Cursos, Sobre e Contato.
+   ========================================================= */
+.page-hero {
+    /* mesmo degradê do hero da página inicial */
+    background: linear-gradient(180deg, var(--color-bg-soft) 0%, #FFF 100%);
+    padding: 56px 0 32px;
+    text-align: center; /* centraliza todo o texto */
 }
 
-/* COMPATIBILIDADE COM NOMES ANTIGOS DA LOGO */
-
-.logo-tittle,
-.logo-title {
-    font-size: 16px;
+/* Etiqueta pequena acima do título */
+.page-tag {
+    display: inline-block;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: 13px;
     font-weight: 600;
-    color: var(--color-text);
+    padding: 4px 14px;
+    border-radius: 999px; /* valor bem alto = pontas totalmente arredondadas ("pílula") */
+    margin-bottom: 12px;
 }
 
-.Logo-subtitle,
-.logo-subtitle {
-    font-size: 12px;
+.page-title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.page-text {
+    font-size: 17px;
+    color: #374151;
+    max-width: 620px;
+    margin: 0 auto; /* "auto" nas laterais centraliza o bloco */
+}
+
+
+/* =========================================================
+   PÁGINA CURSOS
+   ========================================================= */
+
+/* Botões de filtro */
+.filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* se não couber, desce de linha */
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.filter-btn {
+    font-family: var(--font-main); /* botões não herdam a fonte sozinhos */
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background-color: var(--color-bg);
     color: var(--color-text-light);
+    cursor: pointer;
+    transition: all 0.2s ease; /* "all" = anima todas as mudanças */
 }
 
-/* IMAGEM DO CARDÁPIO */
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
 
-.imagem-cardapio {
-    width: 500px;
+/* Botão selecionado (a classe "active" é trocada pelo JavaScript) */
+.filter-btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #FFF;
+}
+
+/* GRADE de cards
+   auto-fill + minmax(260px, 1fr) = "coloque quantas colunas couberem,
+   cada uma com no mínimo 260px". Assim a grade se ajusta sozinha
+   ao tamanho da tela, sem precisar de @media! */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+}
+
+/* Etiqueta da categoria dentro do card */
+.course-tag {
+    align-self: flex-start; /* não estica: fica só do tamanho do texto */
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    background-color: var(--color-gold-light);
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+}
+
+/* Link "Começar curso" no final do card */
+.course-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border); /* linha separando do resto do card */
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.course-link:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Classe colocada pelo JavaScript nos cards que NÃO combinam com o filtro */
+.course-card.escondido {
+    display: none; /* display: none = some da tela */
+}
+
+
+/* =========================================================
+   PÁGINA SOBRE
+   ========================================================= */
+
+/* Nossa história: texto + imagem lado a lado */
+.about {
+    padding: 56px 0;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.about-text  { flex: 1.2; }
+.about-image { flex: 1; }
+
+.about-image img {
     max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    margin: 20px auto;
 }
 
-/* HEADER */
-
-.header {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.about-text .section-title {
+    margin-bottom: 16px;
 }
 
-.header-container {
-    width: 100%;
+.about-text p {
+    color: #374151;
+    margin-bottom: 16px;
 }
 
-.header-actions {
+/* Faixa de números */
+.stats {
+    background-color: var(--color-primary);
+    color: #FFF;
+    padding: 40px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+    gap: 24px;
+    text-align: center;
+}
+
+.stat-number {
+    display: block;     /* número em cima, texto embaixo */
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #E0E7FF;     /* branco levemente azulado */
+}
+
+/* Missão, visão e valores */
+.values {
+    padding: 56px 0;
+}
+
+.values .section-title,
+.steps .section-title,
+.faq .section-title {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.value-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Mesmo efeito de "subir" dos cards de curso */
+.value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.value-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.value-card p {
+    font-size: 14px;
+    color: #4B5563;
+}
+
+/* Como começar (passo a passo) */
+.steps {
+    background-color: var(--color-bg-soft);
+    padding: 56px 0;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    list-style: none; /* tira os números automáticos do <ol>: nós mesmos escrevemos os números */
+}
+
+.step {
+    text-align: center;
+    padding: 0 12px;
+}
+
+/* Círculo com o número do passo */
+.step-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px; /* centraliza e dá espaço embaixo */
+}
+
+.step h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.step p {
+    font-size: 14px;
+    color: #4B5563;
+}
+
+/* Chamada final (CTA) */
+.cta {
+    padding: 56px 0;
+}
+
+.cta-box {
+    /* 135deg = degradê na diagonal */
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-footer) 100%);
+    color: #FFF;
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+    background: linear-gradient(135deg, #5E1014 0%, #86151A 100%);
+    border: 1px solid var(--color-gold);
+}
+
+.cta-box h2 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.cta-box p {
+    color: #E0E7FF;
+    margin-bottom: 24px;
+}
+
+/* Botão branco (aparece bem sobre o fundo escuro) */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-gold);
+    color: #3D2A00;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cta:hover {
+    background: #E7C35A;
+}
+
+
+/* =========================================================
+   PÁGINA CONTATO
+   ========================================================= */
+.contact {
+    padding: 56px 0;
+}
+
+/* Duas colunas: informações (menor) e formulário (maior) */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 48px;
+    align-items: start; /* as colunas não esticam até a mesma altura */
+}
+
+.contact-info .section-title {
+    margin-bottom: 8px;
+}
+
+/* ">" = só o <p> que é filho DIRETO de .contact-info */
+.contact-info > p {
+    color: #4B5563;
+    margin-bottom: 24px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+}
+
+/* O course-icon tem margem embaixo nos cards; aqui não precisamos dela */
+.contact-item .course-icon {
+    margin-bottom: 0;
     flex-shrink: 0;
 }
 
-.main-nav {
-    flex-shrink: 0;
+.contact-item h3 {
+    font-size: 15px;
 }
 
-/* BUSCA */
+.contact-item p {
+    font-size: 14px;
+    color: #4B5563;
+    word-break: break-word; /* quebra o e-mail se ele não couber */
+}
 
-.search-box input {
-    max-width: 100%;
+/* Perguntas frequentes */
+.faq {
+    background-color: var(--color-bg-soft);
+    padding: 56px 0;
+}
+
+.faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+}
+
+/* A pergunta (summary) */
+.faq-item summary {
+    padding: 18px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;   /* tira a setinha padrão (Firefox) */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;      /* tira a setinha padrão (Chrome, Edge, Safari) */
+}
+
+/* ::after cria um "elemento extra" no final, só com CSS.
+   Usamos para desenhar o sinal de + */
+.faq-item summary::after {
+    content: "+";
+    font-size: 22px;
+    color: var(--color-primary);
+}
+
+/* [open] = quando o details está ABERTO, o + vira − */
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+/* A resposta */
+.faq-item p {
+    padding: 0 20px 18px;
+    font-size: 14px;
+    color: #4B5563;
+}
+
+
+/* =========================================================
+   FORMULÁRIOS
+   Estas classes servem para TODOS os formulários do site:
+   contato, entrar e cadastrar.
+   ========================================================= */
+
+/* Caixa branca em volta do formulário de contato */
+.form-card {
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+/* Dois campos lado a lado */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Cada "grupo" = um label + um campo */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;     /* o label fica em cima do campo */
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* Visual dos campos: input, select e textarea */
+.form-control {
+    font-family: var(--font-main);
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.search-box input:focus {
-    box-shadow: 0 0 0 3px rgba(230, 57, 36, 0.12);
+/* :focus = quando o usuário clica no campo para digitar */
+.form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light); /* "brilho" em volta do campo */
 }
 
-/* BOTÕES */
-
-.btn-primary,
-.btn-hero,
-.btn-hero-outline,
-.carousel-btn {
-    -webkit-tap-highlight-color: transparent;
+textarea.form-control {
+    resize: vertical;   /* o usuário só pode aumentar a altura, não a largura */
+    min-height: 130px;
 }
 
-.btn-primary:active,
-.btn-hero:active,
-.btn-hero-outline:active {
-    transform: scale(0.97);
+/* Texto de ajuda embaixo do campo */
+.form-hint {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-light);
+    margin-top: 4px;
 }
 
-/* BANNER PRINCIPAL */
+/* Campo de senha + botão do "olho" */
+.password-box {
+    position: relative; /* referência para posicionar o botão */
+}
 
-.hero {
+.password-box .form-control {
+    padding-right: 48px; /* espaço para o botão não ficar em cima do texto */
+}
+
+.toggle-senha {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%); /* centraliza na vertical (mesmo truque do carrossel) */
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    display: flex;
+    padding: 4px;
+}
+
+.toggle-senha:hover {
+    color: var(--color-primary);
+}
+
+/* Linha com checkbox e link */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #4B5563;
+    cursor: pointer;
+}
+
+.checkbox input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary); /* pinta o checkbox com a cor principal */
+}
+
+.form-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-link:hover {
+    text-decoration: underline;
+}
+
+/* Botão dos formulários.
+   Não usamos .btn-primary porque ele fica escondido no celular! */
+.btn-form {
+    font-family: var(--font-main);
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--color-primary);
+    color: #FFF;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
-.hero-container {
+.btn-form:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Mensagem de retorno: começa ESCONDIDA.
+   O JavaScript adiciona a classe "sucesso" ou "erro" para ela aparecer. */
+.form-message {
+    display: none;
+    margin-top: 16px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.form-message.sucesso {
+    display: block;
+    background-color: #DCFCE7; /* verde clarinho */
+    color: #166534;            /* verde escuro */
+}
+
+.form-message.erro {
+    display: block;
+    background-color: #FEE2E2; /* vermelho clarinho */
+    color: #991B1B;            /* vermelho escuro */
+}
+
+
+/* =========================================================
+   PÁGINAS ENTRAR E CADASTRAR
+   ========================================================= */
+.auth-page {
+    background-color: var(--color-bg-soft);
+}
+
+/* A tela dividida em duas colunas */
+.auth-wrapper {
+    min-height: 100vh; /* vh = altura da tela. 100vh = a tela inteira */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* Painel colorido da esquerda */
+.auth-side {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-footer) 100%);
+    color: #FFF;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* logo em cima, texto no meio, rodapé embaixo */
+}
+
+/* Fundo escuro: textos do logo ficam claros (igual ao footer) */
+.auth-side .logo-title    { color: #FFF; }
+.auth-side .logo-subtitle { color: var(--color-gold-light); }
+
+.auth-side-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    max-width: 420px;
+}
+
+.auth-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #FFF4C7;
+}
+
+.auth-benefits .material-symbols-outlined {
+    color: var(--color-gold);
+}
+
+.auth-side-footer {
+    color: #FFF4C7;
+}
+
+/* Coluna da direita, onde fica o formulário */
+.auth-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* centraliza na horizontal */
+    justify-content: center; /* centraliza na vertical */
+    padding: 48px 24px;
+}
+
+.auth-back {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--color-text-light);
+    font-size: 14px;
+    text-decoration: none;
+    margin-bottom: 24px;
+}
+
+.auth-back:hover {
+    color: var(--color-primary);
+}
+
+/* O "cartão" branco com o formulário */
+.auth-card {
     width: 100%;
+    max-width: 420px;
+    background-color: var(--color-bg);
+    border: 1px solid #F0DEDF;
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
-.hero-content {
-    min-width: 0;
+.auth-title {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 4px;
 }
 
-.hero-image {
-    min-width: 0;
+.auth-subtitle {
+    color: var(--color-text-light);
+    margin-bottom: 28px;
 }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    max-height: 430px;
-    object-fit: cover;
+/* "Não tem conta? Cadastre-se" */
+.auth-switch {
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-text-light);
+    margin-top: 24px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE DAS NOVAS PÁGINAS
+   ========================================================= */
+
+/* Tablets (até 992px) */
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 4 colunas viram 2 */
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr; /* informações em cima, formulário embaixo */
+    }
+
+    .auth-wrapper {
+        grid-template-columns: 1fr; /* só uma coluna */
+    }
+
+    .auth-side {
+        display: none; /* esconde o painel colorido para dar espaço ao formulário */
+    }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+    .page-hero {
+        padding: 40px 0 24px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .about-container {
+        flex-direction: column-reverse; /* imagem em cima, texto embaixo */
+        gap: 24px;
+    }
+
+    .values-grid,
+    .steps-grid,
+    .form-grid {
+        grid-template-columns: 1fr; /* tudo em uma coluna só */
+    }
+
+    .form-card,
+    .auth-card {
+        padding: 24px 20px;
+    }
+
+    .auth-main {
+        padding: 24px 16px;
+    }
+}
+
+
+/* =========================================================
+   PARTE 4 — AUTENTICAÇÃO COM SUPABASE
+   ========================================================= */
+
+/* PASSO 3: botão desativado enquanto espera a resposta do Supabase.
+   :disabled = quando o botão tem o atributo "disabled" (colocado pelo JS) */
+.btn-form:disabled {
+    opacity: 0.6;          /* fica meio transparente */
+    cursor: not-allowed;   /* cursor de "proibido" */
+}
+
+
+/* PASSO 5: página do curso (curso.html) */
+
+/* Ícone grande e centralizado no topo */
+.course-hero-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    margin: 0 auto 16px;    /* "auto" nas laterais centraliza */
+}
+
+/* Duas classes juntas = regra mais forte que a do Google (veja a parte dos ícones) */
+.course-hero-icon .material-symbols-outlined {
+    font-size: 36px;
+}
+
+/* Nível e aulas, centralizados embaixo da descrição */
+.course-hero-info {
+    justify-content: center;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+/* Caixa de "Conteúdo em breve" com borda tracejada */
+.coming-soon {
+    max-width: 560px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid rgba(212, 167, 44, 0.45);
+    background: #FFFDF7;
+    border-radius: 16px;
+    padding: 48px 32px;
+}
+
+.material-symbols-outlined.coming-soon-icon {
+    font-size: 48px;
+    color: var(--color-primary);
+}
+
+.coming-soon h2 {
+    font-size: 24px;
+    margin: 12px 0 8px;
+}
+
+.coming-soon p {
+    color: #4B5563;
+    margin-bottom: 24px;
+}
+
+
+/* PASSO 6: saudação "Olá, Nome!" no header */
+.user-greeting {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    white-space: nowrap;   /* não quebra o nome em duas linhas */
+}
+
+/* ===== CARDÁPIO ===== */
+.logo img {
+    width: 58px;
+    height: 58px;
+    border-radius: 8px;
+    object-fit: contain;
     object-position: center;
-    border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    background: #FFF;
 }
 
-/* CARDS */
-
-.course-card {
-    min-width: 0;
+.menu-hero {
+    min-height: 230px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(212, 167, 44, 0.18), transparent 32%),
+        linear-gradient(135deg, #FFF 0%, #FFF4F4 100%);
 }
 
-.course-card img {
+.menu-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.menu-hero-logo {
+    position: absolute;
+    z-index: 1;
+    width: 94px;
+    height: 94px;
+    border-radius: 12px;
+    object-fit: contain;
+    object-position: center;
+    background: #FFF;
+    box-shadow: 0 8px 18px rgba(94, 16, 20, 0.10);
+}
+
+.menu-hero-logo-left {
+    left: 24px;
+    bottom: -18px;
+}
+
+.menu-hero-logo-right {
+    right: 24px;
+    top: -18px;
+}
+
+.course-grid .course-card {
+    min-height: 320px;
+}
+
+.course-grid .course-icon {
+    width: 58px;
+    height: 58px;
+}
+
+.course-grid .course-info {
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.course-grid .course-link {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    justify-content: space-between;
 }
-
-.course-title {
-    line-height: 1.3;
-}
-
-.course-text {
-    line-height: 1.6;
-}
-
-/* CARROSSEL */
-
-.course-list {
-    width: 100%;
-    overscroll-behavior-x: contain;
-}
-
-.carousel-btn {
-    transition: background-color 0.2s ease,
-                color 0.2s ease,
-                transform 0.2s ease;
-}
-
-.carousel-prev:hover,
-.carousel-next:hover {
-    transform: translateY(-50%) scale(1.05);
-}
-
-/* FOOTER */
-
-.footer {
-    width: 100%;
-}
-
-.footer-container {
-    width: 100%;
-}
-
-.social-links a {
-    flex-shrink: 0;
-}
-
-/* MODO ESCURO - COMPLEMENTOS */
-
-body.escuro .logo-tittle,
-body.escuro .logo-title {
-    color: #f5f5f5;
-}
-
-body.escuro .Logo-subtitle,
-body.escuro .logo-subtitle {
-    color: #cccccc;
-}
-
-body.escuro .btn-hero-outline {
-    border-color: #FFC107;
-}
-
-body.escuro .btn-hero-outline:hover {
-    background-color: #333333;
-}
-
-body.escuro .course-info {
-    color: #f5f5f5;
-}
-
-body.escuro .course-lessons {
-    color: #ff806d;
-}
-
-body.escuro .hero-feature small {
-    color: #bbbbbb;
-}
-
-body.escuro .carousel-btn {
-    background-color: #FFC107;
-    color: #202020;
-}
-
-body.escuro .carousel-btn:hover {
-    background-color: #E63924;
-    color: #ffffff;
-}
-
-body.escuro .search-box input::placeholder {
-    color: #bbbbbb;
-}
-
-/* TABLETS */
 
 @media (max-width: 992px) {
-
-    .header-container {
-        gap: 16px;
+    .logo img {
+        width: 52px;
+        height: 52px;
     }
 
-    .main-nav {
-        gap: 18px;
-    }
-
-    .header-actions {
-        gap: 10px;
-    }
-
-    .search-box input {
-        width: 170px;
-    }
-
-    .hero-image img {
-        max-height: 360px;
-    }
-
-    .why-item {
-        padding: 12px;
+    .menu-hero-logo {
+        width: 82px;
+        height: 82px;
     }
 }
-
-/* CELULARES */
 
 @media (max-width: 768px) {
-
-    .header {
-        position: sticky;
-        top: 0;
-    }
-
-    .header-container {
-        padding: 12px 16px;
-    }
-
-    .main-nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        width: 100%;
-        z-index: 1000;
-    }
-
-    .main-nav.active {
-        display: flex;
-    }
-
-    .header-actions {
-        margin-left: auto;
-    }
-
-    .hero-image img {
-        width: 100%;
-        max-width: 100%;
-        max-height: 300px;
-        border-radius: 16px;
-    }
-
-    .hero-content {
-        text-align: left;
-    }
-
-    .hero-features {
-        justify-content: flex-start;
-    }
-
-    .course-list {
-        padding-bottom: 24px;
-    }
-
-    .course-card {
-        flex: 0 0 245px;
-    }
-
-    .footer-container {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-}
-
-/* CELULARES PEQUENOS */
-
-@media (max-width: 400px) {
-
-    .header-container {
-        padding: 10px 12px;
-        gap: 8px;
-    }
-
-    .logo {
-        gap: 5px;
-    }
-
     .logo img {
-        width: 42px;
-    }
-
-    .logo-title,
-    .logo-tittle {
-        font-size: 14px;
-    }
-
-    .logo-subtitle,
-    .Logo-subtitle {
-        font-size: 10px;
-    }
-
-    .btn-primary {
-        padding: 9px 10px;
-        font-size: 11px;
+        width: 46px;
+        height: 46px;
     }
 
     .hero-image img {
-        max-height: 240px;
+        max-height: 280px;
     }
 
-    .course-card {
-        flex-basis: 225px;
-    }
-}
-
-/* TELAS GRANDES */
-
-@media (min-width: 1400px) {
-
-    .container,
-    .header-container {
-        max-width: 1280px;
-    }
-
-    .hero {
-        padding: 88px 0;
-    }
-
-    .hero-image img {
-        max-width: 560px;
-    }
-}
-
-
-/* =================================
-   SEÇÃO DE RECOMENDAÇÕES
-================================= */
-
-.recomendacoes {
-    width: 100%;
-    padding: 50px 20px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.recomendacoes h1 {
-    font-size: 34px;
-    color: #c62828;
-    font-weight: 800;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-}
-
-.recomendacoes p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 35px;
-    line-height: 1.6;
-}
-
-/* =================================
-   IMAGEM DO CARDÁPIO
-================================= */
-
-.imagem-cardapio {
-    display: block;
-
-    width: 100%;
-    max-width: 520px;
-    height: 320px;
-
-    margin: 0 auto;
-
-    object-fit: cover;
-    object-position: center;
-
-    border: 6px solid #ffffff;
-    border-radius: 24px;
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.12),
-        0 4px 12px rgba(198, 40, 40, 0.10);
-
-    transition: transform 0.35s ease,
-                box-shadow 0.35s ease;
-}
-
-/* EFEITO AO PASSAR O MOUSE */
-
-.imagem-cardapio:hover {
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.18),
-        0 5px 15px rgba(131, 6, 6, 0.15);
-}
-
-/* =================================
-   RESPONSIVIDADE
-================================= */
-
-@media (max-width: 600px) {
-
-    .recomendacoes {
-        padding: 35px 15px;
-    }
-
-    .recomendacoes h1 {
-        font-size: 27px;
-    }
-
-    .recomendacoes p {
-        font-size: 14px;
-        margin-bottom: 25px;
-    }
-
-    .imagem-cardapio {
-        width: 100%;
-        height: 240px;
-        border-width: 4px;
-        border-radius: 18px;
+    .menu-hero-logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 10px;
     }
 }

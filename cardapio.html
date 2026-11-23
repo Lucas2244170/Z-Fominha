@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!-- Declara que este documento usa HTML5 -->
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio | Zé Fominha</title>
+    <!-- Cada página tem um título diferente na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Conecta o arquivo de estilos (CSS). Todas as páginas usam o MESMO style.css -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Importando fonte do Google Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+    <!-- Ícones Material Symbols (Google Fonts) -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome: ícones das redes sociais no rodapé -->
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+
+            <a href="index.html" class="logo">
+                <img src="./assets/logo zé forminha.jpg" alt="Logo Zé Fominha">
+                <span class="logo-text">
+                    <span class="logo-title">Zé Fominha</span>
+                    <span class="logo-subtitle">Sabor que mata a fome</span>
+                </span>
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Início</a>
+                <a href="cardapio.html" class="nav-link active">Cardápio</a>
+                <a href="sobre.html" class="nav-link">Sobre nós</a>
+                <a href="contato.html" class="nav-link">Contato</a>
+                <a href="entrar.html" class="nav-link nav-link-mobile">Entrar / Cadastrar</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" id="buscar-cardapio" placeholder="Buscar no cardápio...">
+                    <span class="material-symbols-outlined search-icon" aria-hidden="true">search</span>
+                </div>
+
+                <span class="user-greeting" id="saudacao" hidden></span>
+                <a href="entrar.html" class="btn-primary">Fazer pedido</a>
+            </div>
+
+            <button class="hamburguer" id="btn-menu" aria-label="Abrir menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="page-hero menu-hero">
+           
+            <div class="container menu-hero-content">
+                <span class="page-tag">Cardápio Zé Fominha</span>
+                <h1 class="page-title">O que vai matar sua fome hoje?</h1>
+                <p class="page-text">
+                    Hambúrgueres, pizzas, porções e bebidas preparados na hora.
+                    Escolha seu favorito e faça seu pedido.
+                </p>
+            </div>
+           
+        </section>
+
+
+        <!-- ---------------- LISTA DE CURSOS ---------------- -->
+        <section class="courses">
+            <div class="container">
+
+                <!-- BOTÕES DE FILTRO
+                     data-categoria é um atributo que NÓS inventamos.
+                     Todo atributo que começa com "data-" serve para guardar
+                     uma informação extra, que o JavaScript consegue ler.
+                     Aqui ele diz qual categoria o botão deve mostrar. -->
+                <div class="filters">
+                    <button class="filter-btn active" data-categoria="todos">Todos</button>
+                    <button class="filter-btn" data-categoria="hamburguer">Hambúrgueres</button>
+                    <button class="filter-btn" data-categoria="pizza">Pizzas</button>
+                    <button class="filter-btn" data-categoria="porcoes">Porções</button>
+                    <button class="filter-btn" data-categoria="bebidas">Bebidas</button>
+                </div>
+
+                <!-- GRADE DE CURSOS
+                     Reaproveitamos a classe "course-card" do carrossel da página inicial!
+                     Cada card também tem um data-categoria, que precisa ser IGUAL
+                     ao data-categoria de um dos botões de filtro. -->
+                <div class="course-grid">
+
+                    <!-- CARD 1 -->
+                    <article class="course-card" data-categoria="hamburguer">
+                        <div class="course-icon icon-blue">
+                            <span class="material-symbols-outlined" aria-hidden="true">fastfood</span>
+                        </div>
+                        <span class="course-tag">Hambúrgueres</span>
+                        <h3 class="course-title">Cheeseburger Clássico</h3>
+                        <p class="course-text">Pão, carne, queijo e molho especial. O clássico que nunca sai de moda.</p>
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">groups</span>
+                                Porção individual
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                30-40 min
+                            </span>
+                        </div>
+                        <a href="login.html?curso=cheeseburger-classico" class="course-link">
+                            Fazer pedido
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 2 -->
+                    <article class="course-card" data-categoria="pizza">
+                        <div class="course-icon icon-orange">
+                            <span class="material-symbols-outlined" aria-hidden="true">pizza</span>
+                        </div>
+                        <span class="course-tag">Pizzas</span>
+                        <h3 class="course-title">Pizza Margherita</h3>
+                        <p class="course-text">Molho de tomate, queijo e manjericão. A verdadeira pizza italiana.</p>
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">groups</span>
+                                Serve 2 pessoas
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                35-45 min
+                            </span>
+                        </div>
+                        <a href="login.html?curso=pizza-margherita" class="course-link">
+                            Fazer pedido
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 3 -->
+                    <article class="course-card" data-categoria="pizza">
+                        <div class="course-icon icon-yellow">
+                            <span class="material-symbols-outlined" aria-hidden="true">local_pizza</span>
+                        </div>
+                        <span class="course-tag">Pizzas</span>
+                        <h3 class="course-title">Pizza Pepperoni</h3>
+                        <p class="course-text">Molho de tomate, queijo e pepperoni. Picante na medida certa.</p>
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">groups</span>
+                                Serve 2 pessoas
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                35-45 min
+                            </span>
+                        </div>
+                        <a href="login.html?curso=pizza-pepperoni" class="course-link">
+                            Fazer pedido
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 4 -->
+                    <article class="course-card" data-categoria="porcoes">
+                        <div class="course-icon icon-blue">
+                            <span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
+                        </div>
+                        <span class="course-tag">Porções</span>
+                        <h3 class="course-title">Frango Crocante</h3>
+                        <p class="course-text">Tiras de frango empanadas e crocantes, acompanhadas de molho especial.</p>
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">groups</span>
+                                Porção individual
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">schedule</span>
+                                30-40 min
+                            </span>
+                        </div>
+                        <a href="login.html?curso=frango-crocante" class="course-link">
+                            Fazer pedido
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 5 -->
+                    <article class="course-card" data-categoria="bebidas">
+                        <div class="course-icon icon-green">
+                            <span class="material-symbols-outlined" aria-hidden="true">local_cafe</span>
+                        </div>
+                        <span class="course-tag">Bebidas</span>
+                        <h3 class="course-title">Suco Natural</h3>
+                        <p class="course-text">Sucos gelados feitos na hora com frutas fresquinhas.</p>
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">local_cafe</span>
+                                500 ml
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">ac_unit</span>
+                                Gelado
+                            </span>
+                        </div>
+                        <a href="login.html?curso=suco-natural" class="course-link">
+                            Fazer pedido
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+
+                    <!-- CARD 6 -->
+                    <article class="course-card" data-categoria="porcoes">
+                        <div class="course-icon icon-purple">
+                            <span class="material-symbols-outlined" aria-hidden="true">restaurant_menu</span>
+                        </div>
+                        <span class="course-tag">Porções</span>
+                        <h3 class="course-title">Combo da Galera</h3>
+                        <p class="course-text">Batata, frango crocante, molhos especiais e refrigerantes.</p>
+                        <div class="course-info">
+                            <span class="course-level">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">groups</span>
+                                Serve 4
+                            </span>
+                            <span class="course-lessons">
+                                <span class="material-symbols-outlined icon-xs" aria-hidden="true">sell</span>
+                                Combo
+                            </span>
+                        </div>
+                        <a href="login.html?curso=combo-galera" class="course-link">
+                            Fazer pedido
+                            <span class="material-symbols-outlined icon-sm" aria-hidden="true">arrow_forward</span>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ---------------- FOOTER (rodapé) ----------------
+         Mesmo rodapé da página inicial. -->
+    <footer class="footer">
+        <div class="container footer-container">
+
+            <!-- Coluna 1: logo -->
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="./assets/logo zé forminha.jpg" alt="Logo Zé Fominha">
+                    <span class="logo-text">
+                        <span class="logo-title">Zé Fominha</span>
+                        <span class="logo-subtitle">Sabor que mata a fome</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- Coluna 2: navegação -->
+            <div class="footer-column">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cardapio.html">Cardápio</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="footer-copy">
+            &copy; <span id="ano"></span> Zé Fominha. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <!-- 1º) Biblioteca do Supabase (baixada da internet pelo CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 2º) Nossa conexão com o projeto no Supabase -->
+    <script src="js/supabase-config.js"></script>
+
+    <!-- 3º) Nosso script (precisa vir POR ÚLTIMO, pois usa os dois de cima) -->
+    <script src="js/script.js"></script>
+    <!-- Todas as páginas usam o MESMO script.js -->
+</body>
+</html>
